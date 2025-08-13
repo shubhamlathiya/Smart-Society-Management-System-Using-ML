@@ -1,6 +1,9 @@
 
 const PATHS ={
-    DASHBOARD : "/dashboard"
+  DASHBOARD: "/dashboard",
+  SERVICE: "/service",
+  NOTICE: "/notice",
+  ABOUT: "/about"
 }
 
 
