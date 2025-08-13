@@ -1,3 +1,4 @@
+
 // import logo from './logo.svg';
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -6,12 +7,14 @@ import NotFoundPage from "./pages/error/NotFoundPage";
 // import CardView from "./components/CardVIew/cardView";
 // import Login from "./pages/auth/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import ResidentForm from "./components/Forms/ResidentForm";
 // import Table from "./components/Table";
 // import ComplaintForm from "./components/Forms/ComplaintForm";
 import NoticeView from "./pages/admin/NoticeView";
 import PATHS from "./utils/constants/Path";
 
 function App() {
+
   // const complaintData = [{
   //     id: 1,
   //     category: 'Plumbing',
@@ -51,6 +54,7 @@ function App() {
       )}
     </div>
   );
+
 }
 
 export default App;
