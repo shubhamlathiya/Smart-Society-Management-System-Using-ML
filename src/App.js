@@ -1,10 +1,13 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import CardView from "./components/CardVIew/cardView";
-import Login from "./pages/auth/Login";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import NotFoundPage from "./pages/error/NotFoundPage";
+// import PATHS from "./utils/constants/Path";
+// import CardView from "./components/CardVIew/cardView";
+// import Login from "./pages/auth/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
-import Table from "./components/Table";
-import ComplaintForm from "./components/Forms/ComplaintForm";
+// import Table from "./components/Table";
+// import ComplaintForm from "./components/Forms/ComplaintForm";
 
 function App() {
 
@@ -21,10 +24,17 @@ function App() {
     // //
 
     return (<div className="App">
+
+        <Router>
+            <Routes>
+                {/* Catch-all route for 404 */}
+                <Route path="*" element={<NotFoundPage/>}/>
+            </Routes>
+        </Router>
         {/*<ComplaintForm/>*/}
         {/*<Table columns={columns} data={complaintData}/>*/}
         {/*<Table/>*/}
-        {/*<AdminDashboard/>*/}
+        <AdminDashboard/>
         {/*<Login/>*/}
         {/*<CardView click="shubham" title="Shubham" description="Shubham"/>*/}
         {/*<CardView click="shubham 123" title="Shubham 123" description="Shubham 123"/>*/}
