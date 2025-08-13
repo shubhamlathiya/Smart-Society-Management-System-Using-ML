@@ -9,7 +9,7 @@ function AdminDashboard() {
                     <CardView  title="Dashboard 123"  description="Dashboard" click="/dashboard"/>
                     <CardView  title="service" description="Service" click="/service"/>
                     <CardView  title="Home" description="Home" click="/home"/>
-                    {/*<CardView  title="About" description="About" click="/about"/>*/}
+                    <CardView  title="About" description="About" click="/about"/>
                 </div>
             </div>
         </>
