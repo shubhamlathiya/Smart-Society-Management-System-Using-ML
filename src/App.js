@@ -7,11 +7,12 @@ import NotFoundPage from "./pages/error/NotFoundPage";
 // import CardView from "./components/CardVIew/cardView";
 // import Login from "./pages/auth/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
-import ResidentForm from "./components/Forms/ResidentForm";
-// import Table from "./components/Table";
+// import ResidentForm from "./components/Forms/ResidentForm";
+// import HousingTable from "./components/HousingTable";
 // import ComplaintForm from "./components/Forms/ComplaintForm";
 import NoticeView from "./pages/admin/NoticeView";
 import PATHS from "./utils/constants/Path";
+import HousingView from "./pages/admin/HousingView";
 
 function App() {
 
@@ -41,11 +42,12 @@ function App() {
       <Routes>
         <Route path="/" element={<AdminDashboard />} />
         <Route path={PATHS.NOTICE} element={<NoticeView />} />
+        <Route path={PATHS.HOUSING} element={<HousingView />} />
       </Routes>
     </Router>
         // <ComplaintForm/>
-        //   <Table columns={columns} data={complaintData}/>
-        //   <Table/>
+        //   <HousingTable columns={columns} data={complaintData}/>
+        //   <HousingTable/>
         //    <AdminDashboard/>
         //   <Login/>
         // <NoticeView />

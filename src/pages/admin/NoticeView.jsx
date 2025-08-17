@@ -169,7 +169,7 @@ function NoticeView() {
         </div>
       )}
 
-      {/* Table */}
+      {/* HousingTable */}
       <div className="table-responsive" style={{borderRadius:5,backgroundColor:colors.light,border:"solid",borderWidth:1}}>
         <table className="table table-hover align-middle">
           <thead >

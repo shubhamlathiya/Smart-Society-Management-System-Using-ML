@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import EditHousingBlockForm from "../Forms/HousingBlock/editHousingBlockForm";
 
 
-function Table({columns = [], data = [], onUpdate}) {
+function HousingTable({columns = [], data = [], onUpdate}) {
     const [selectedRow, setSelectedRow] = useState(null);
 
     function onEdit(row) {
@@ -98,4 +98,4 @@ function Table({columns = [], data = [], onUpdate}) {
         </>);
 }
 
-export default Table;
+export default HousingTable;
