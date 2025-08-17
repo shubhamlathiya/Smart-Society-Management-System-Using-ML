@@ -1,0 +1,19 @@
+.sidebar-link {
+  color: black !important;       /* Default text (icon + title) black */
+  border: 1px solid transparent; 
+  border-radius: 6px;
+  transition: 0.2s;
+  font-weight: 500;
+}
+
+.sidebar-link:hover {
+  color: #0d6efd !important;     /* Blue on hover */
+  border: 1px solid #0d6efd;
+  background-color: transparent !important;
+}
+
+.sidebar-link.active {
+  color: #0d6efd !important;     /* Blue when active */
+  border: 1px solid #0d6efd;
+  background-color: transparent !important;
+}

@@ -14,8 +14,14 @@ import PATHS from "./utils/constants/Path";
 import AboutView from "./pages/admin/AboutView";
 
 import HousingView from "./pages/admin/HousingView";
+import { useEffect } from "react";
+import Aos from "aos";
 
 function App() {
+
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
 
   // const complaintData = [{
   //     id: 1,

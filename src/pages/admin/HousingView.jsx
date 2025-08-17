@@ -4,6 +4,7 @@ import {housingApi} from "../../services/api";
 import {unitTypes} from "../../utils/constants/appConstants";
 import AddHousingBlockForm from "../../components/Forms/HousingBlock/addHousingBlockForm";
 import PageHeader from "../../layout/PageHeader";
+import Sidebar from "../../components/dashboard/Slidebar";
 
 function HousingView() {
 
@@ -30,7 +31,8 @@ function HousingView() {
         {header: "Type", accessor: "type", type: "select", options: unitTypes},
     ]
     return (
-        <>
+        <div className="d-flex">
+            <Sidebar/>
             <div className="container">
                 <PageHeader PageTitle={"Housing"}/>
                 <div className="row">
@@ -43,7 +45,7 @@ function HousingView() {
                 </div>
             </div>
 
-        </>
+        </div>
     )
 }
 
