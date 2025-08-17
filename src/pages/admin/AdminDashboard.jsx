@@ -80,7 +80,10 @@ function AdminDashboard() {
                     <CardView title="service" description="Service" click="/service"/>
                 </div>
                 <div className="col-2">
-                    <CardView title="Notice" description="Home" click={PATHS.NOTICE}/>
+                    <CardView title="House" description="House" click={PATHS.HOUSING} />
+                </div>
+                <div className="col-2">
+                    <CardView title="Notice" description="Home" click={PATHS.NOTICE} />
                 </div>
                 <div className="col-2">
                     <CardView title="About" description="About" click="/about"/>

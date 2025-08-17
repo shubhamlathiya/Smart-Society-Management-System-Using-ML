@@ -13,6 +13,8 @@ import NoticeView from "./pages/admin/NoticeView";
 import PATHS from "./utils/constants/Path";
 import AboutView from "./pages/admin/AboutView";
 
+import HousingView from "./pages/admin/HousingView";
+
 function App() {
 
   // const complaintData = [{
@@ -42,12 +44,12 @@ function App() {
         <Route path="/" element={<AdminDashboard />} />
         <Route path={PATHS.NOTICE} element={<NoticeView />} />
         <Route path="/about" element={<AboutView />} />
-
+        <Route path={PATHS.HOUSING} element={<HousingView />} />
       </Routes>
     </Router>
-        // <ResidentForm/>
-        //   <Table columns={columns} data={complaintData}/>
-        //   <Table/>
+        // <ComplaintForm/>
+        //   <HousingTable columns={columns} data={complaintData}/>
+        //   <HousingTable/>
         //    <AdminDashboard/>
         //   <Login/>
         // <NoticeView />
