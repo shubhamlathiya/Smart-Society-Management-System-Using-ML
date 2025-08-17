@@ -7,11 +7,11 @@ import NotFoundPage from "./pages/error/NotFoundPage";
 // import CardView from "./components/CardVIew/cardView";
 // import Login from "./pages/auth/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
-import ResidentForm from "./components/Forms/ResidentForm";
 // import Table from "./components/Table";
 // import ComplaintForm from "./components/Forms/ComplaintForm";
 import NoticeView from "./pages/admin/NoticeView";
 import PATHS from "./utils/constants/Path";
+import AboutView from "./pages/admin/AboutView";
 
 function App() {
 
@@ -41,9 +41,11 @@ function App() {
       <Routes>
         <Route path="/" element={<AdminDashboard />} />
         <Route path={PATHS.NOTICE} element={<NoticeView />} />
+        <Route path="/about" element={<AboutView />} />
+
       </Routes>
     </Router>
-        // <ComplaintForm/>
+        // <ResidentForm/>
         //   <Table columns={columns} data={complaintData}/>
         //   <Table/>
         //    <AdminDashboard/>
