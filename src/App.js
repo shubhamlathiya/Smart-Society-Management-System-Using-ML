@@ -1,11 +1,11 @@
 import './App.css';
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import NotFoundPage from "./pages/error/NotFoundPage";
+// import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+// import NotFoundPage from "./pages/error/NotFoundPage";
 // import PATHS from "./utils/constants/Path";
 // import CardView from "./components/CardVIew/cardView";
 // import Login from "./pages/auth/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
-import ResidentForm from "./components/Forms/ResidentForm";
+// import ResidentForm from "./components/Forms/ResidentForm";
 // import Table from "./components/Table";
 // import ComplaintForm from "./components/Forms/ComplaintForm";
 
@@ -33,7 +33,7 @@ function App() {
         {/*    </Routes>*/}
         {/*</Router>*/}
         {/*<ComplaintForm/>*/}
-        {/*<HousingBlockForm/>*/}
+        {/*<AddHousingBlockForm/>*/}
         {/*<ResidentForm/>*/}
         {/*<Table columns={columns} data={complaintData}/>*/}
         {/*<Table/>*/}

@@ -3,7 +3,7 @@ import React from "react";
 function RecentTransactions({title, periodOptions, transactions}) {
 
 
-    return (<div className="mt-2 col-xl-4 col-lg-6 d-flex">
+    return (
         <div className="card shadow-sm flex-fill w-100">
             {/* Header */}
             <div className="card-header d-flex align-items-center justify-content-between">
@@ -34,7 +34,9 @@ function RecentTransactions({title, periodOptions, transactions}) {
                     <div className="d-flex align-items-center">
                         <a
                             href="/"
-                            onClick={(e)=>{e.preventDefault()}}
+                            onClick={(e) => {
+                                e.preventDefault()
+                            }}
                             className="avatar me-2 flex-shrink-0"
                         >
                             <img
@@ -46,12 +48,16 @@ function RecentTransactions({title, periodOptions, transactions}) {
                         </a>
                         <div>
                             <h6 className="fs-14 mb-1 text-truncate">
-                                <a href="/" onClick={(e)=>{e.preventDefault()}} className="fw-semibold">
+                                <a href="/" onClick={(e) => {
+                                    e.preventDefault()
+                                }} className="fw-semibold">
                                     {tx.title}
                                 </a>
                             </h6>
                             <p className="mb-0 fs-13 text-truncate">
-                                <a href="/" onClick={(e) =>{e.preventDefault()}} className="link-primary">
+                                <a href="/" onClick={(e) => {
+                                    e.preventDefault()
+                                }} className="link-primary">
                                     {tx.invoice}
                                 </a>
                             </p>
@@ -64,8 +70,7 @@ function RecentTransactions({title, periodOptions, transactions}) {
               </span>
                 </div>))}
             </div>
-        </div>
-    </div>);
+        </div>);
 }
 
 export default RecentTransactions;

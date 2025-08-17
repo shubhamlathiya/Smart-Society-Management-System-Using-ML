@@ -1,8 +1,10 @@
 
-const PATHS ={
-    DASHBOARD : "/dashboard"
-}
 
+
+
+const PATHS = {
+    DASHBOARD: "/dashboard"
+}
 
 
 export default PATHS;

@@ -1,54 +1,71 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import {complaintApi} from "../../services/api";
 
 function ComplaintForm(props) {
-
-    const [form, setForm] = useState({ category: '', description: '' })
+    const [description, setDescription] = useState('');
 
     function handleChange(e) {
-        setForm({ ...form, [e.target.name]: e.target.value })
+        setDescription(e.target.value);
     }
 
-    function handleSubmit(e) {
-        e.preventDefault()
-        if (!form.category || !form.description) {
-            alert('Please fill out all fields')
-            return
+    async function handleSubmit(e) {
+        e.preventDefault();
+        if (!description.trim()) {
+            alert('Please enter a complaint description');
+            return;
         }
-        console.log(form)
-        setForm({ category: '', description: '' })
-    }
+        console.log({description});
 
+        const response = await complaintApi.addComplaint({description});
+        console.log(response.data);
+        if (response) {
+            alert(`${response.data.status}`);
+        }
+
+        setDescription('');
+    }
 
     return (
-        <>
-            <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow mb-4">
-                <h3 className="text-lg font-semibold mb-3">Add New Complaint</h3>
-                <div className="mb-3">
-                    <label className="block text-sm font-medium mb-1">Category</label>
-                    <input
-                        name="category"
-                        value={form.category}
-                        onChange={handleChange}
-                        className="w-full p-2 border rounded"
-                        placeholder="e.g., Plumbing"
-                    />
+        <div className="container mt-4">
+            <div className="row justify-content-center">
+                <div className="col-md-8 col-lg-6">
+                    <div className="card shadow-sm">
+                        <div className="card-body">
+                            <h3 className="card-title text-center mb-4">Submit New Complaint</h3>
+                            <form onSubmit={handleSubmit}>
+                                <div className="mb-3">
+                                    <label htmlFor="complaintDescription" className="form-label">
+                                        Complaint Description
+                                    </label>
+                                    <textarea
+                                        id="complaintDescription"
+                                        name="description"
+                                        value={description}
+                                        onChange={handleChange}
+                                        className="form-control"
+                                        rows="4"
+                                        placeholder="Please describe your complaint in detail..."
+                                        required
+                                    />
+                                    <div className="form-text">
+                                        Be specific about the issue including location and time if relevant.
+                                    </div>
+                                </div>
+                                <div className="d-grid gap-2">
+                                    <button
+                                        type="submit"
+                                        className="btn btn-primary"
+                                    >
+                                        Submit Complaint
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div className="mb-3">
-                    <label className="block text-sm font-medium mb-1">Description</label>
-                    <textarea
-                        name="description"
-                        value={form.description}
-                        onChange={handleChange}
-                        className="w-full p-2 border rounded"
-                        placeholder="Describe the issue"
-                    />
-                </div>
-                <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded">
-                    Submit Complaint
-                </button>
-            </form>
-        </>
-    )
+            </div>
+        </div>
+    );
 }
 
 export default ComplaintForm;

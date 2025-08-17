@@ -1,12 +1,12 @@
 import React, {useState} from "react";
+import {housingApi} from "../../../services/api";
+import {unitTypes} from "../../../utils/constants/appConstants";
 
-function HousingBlockForm() {
+function AddHousingBlockForm() {
 
-    const unitTypes = ['1BHK', '2BHK', '3BHK', '4BHK', 'Penthouse', 'Studio'];
+
     const [blockNumber, setBlockNumber] = useState('');
-    const [flats, setFlats] = useState([
-        {flatNumber: '', type: '1BHK'}
-    ]);
+    const [flats, setFlats] = useState([{flatNumber: '', type: '1BHK'}]);
 
     const handleBlockNumberChange = (e) => {
         setBlockNumber(e.target.value);
@@ -35,20 +35,23 @@ function HousingBlockForm() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const housingUnits = flats.map(flat => ({
-            blockNumber,
-            unitNumber: flat.flatNumber,
-            type: flat.type
+        const housingUnitsData = flats.map(flat => ({
+            blockNumber, unitNumber: flat.flatNumber, type: flat.type
         }));
-        console.log(housingUnits);
+
+        const response = await housingApi.addHousing(housingUnitsData);
+        console.log(response);
+        if (response) {
+            alert(`${response.data.message}`);
+        }
+
         setBlockNumber('');
         setFlats([{flatNumber: '', type: '1BHK'}]);
     };
 
-    return (
-        <>
+    return (<>
             <div className="container mt-4">
                 <form onSubmit={handleSubmit}>
                     <h4 className="mb-4">Add New Housing Block</h4>
@@ -67,8 +70,7 @@ function HousingBlockForm() {
 
                     <div className="mb-3">
                         <h6 className="mb-3">Flats in this Block</h6>
-                        {flats.map((flat, index) => (
-                            <div key={index} className="row g-3 mb-3 align-items-center">
+                        {flats.map((flat, index) => (<div key={index} className="row g-3 mb-3 align-items-center">
                                 <div className="col-md-5">
                                     <input
                                         type="text"
@@ -86,33 +88,26 @@ function HousingBlockForm() {
                                         value={flat.type}
                                         onChange={(e) => handleTypeChange(index, e.target.value)}
                                     >
-                                        {unitTypes.map(type => (
-                                            <option key={type} value={type}>{type}</option>
-                                        ))}
+                                        {unitTypes.map(type => (<option key={type} value={type}>{type}</option>))}
                                     </select>
                                 </div>
 
                                 <div className="col-md-2">
-                                    {index === flats.length - 1 ? (
-                                        <button
+                                    {index === flats.length - 1 ? (<button
                                             type="button"
                                             className="btn btn-outline-primary"
                                             onClick={addFlat}
                                         >
                                             Add
-                                        </button>
-                                    ) : (
-                                        <button
+                                        </button>) : (<button
                                             type="button"
                                             className="btn btn-outline-danger"
                                             onClick={() => removeFlat(index)}
                                         >
                                             Remove
-                                        </button>
-                                    )}
+                                        </button>)}
                                 </div>
-                            </div>
-                        ))}
+                            </div>))}
                     </div>
 
                     <div className="d-grid">
@@ -122,9 +117,8 @@ function HousingBlockForm() {
                     </div>
                 </form>
             </div>
-        </>
-    )
+        </>)
 }
 
 
-export default HousingBlockForm;
+export default AddHousingBlockForm;
