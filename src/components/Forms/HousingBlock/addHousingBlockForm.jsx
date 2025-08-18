@@ -52,72 +52,72 @@ function AddHousingBlockForm() {
     };
 
     return (<>
-            <div className="container mt-4">
-                <form onSubmit={handleSubmit}>
-                    <h4 className="mb-4">Add New Housing Block</h4>
+        <div className="container mt-4">
+            <form onSubmit={handleSubmit}>
+                <h4 className="mb-4">Add New Housing Block</h4>
 
-                    <div className="mb-3">
-                        <label htmlFor="blockNumber" className="form-label">Block Number</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="blockNumber"
-                            value={blockNumber}
-                            onChange={handleBlockNumberChange}
-                            required
-                        />
-                    </div>
+                <div className="mb-3">
+                    <label htmlFor="blockNumber" className="form-label">Block Number</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="blockNumber"
+                        value={blockNumber}
+                        onChange={handleBlockNumberChange}
+                        required
+                    />
+                </div>
 
-                    <div className="mb-3">
-                        <h6 className="mb-3">Flats in this Block</h6>
-                        {flats.map((flat, index) => (<div key={index} className="row g-3 mb-3 align-items-center">
-                                <div className="col-md-5">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder={`Flat Number ${index + 1}`}
-                                        value={flat.flatNumber}
-                                        onChange={(e) => handleFlatNumberChange(index, e.target.value)}
-                                        required
-                                    />
-                                </div>
+                <div className="mb-3">
+                    <h6 className="mb-3">Flats in this Block</h6>
+                    {flats.map((flat, index) => (<div key={index} className="row g-3 mb-3 align-items-center">
+                        <div className="col-md-5">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder={`Flat Number ${index + 1}`}
+                                value={flat.flatNumber}
+                                onChange={(e) => handleFlatNumberChange(index, e.target.value)}
+                                required
+                            />
+                        </div>
 
-                                <div className="col-md-5">
-                                    <select
-                                        className="form-select"
-                                        value={flat.type}
-                                        onChange={(e) => handleTypeChange(index, e.target.value)}
-                                    >
-                                        {unitTypes.map(type => (<option key={type} value={type}>{type}</option>))}
-                                    </select>
-                                </div>
+                        <div className="col-md-5">
+                            <select
+                                className="form-select"
+                                value={flat.type}
+                                onChange={(e) => handleTypeChange(index, e.target.value)}
+                            >
+                                {unitTypes.map(type => (<option key={type} value={type}>{type}</option>))}
+                            </select>
+                        </div>
 
-                                <div className="col-md-2">
-                                    {index === flats.length - 1 ? (<button
-                                            type="button"
-                                            className="btn btn-outline-primary"
-                                            onClick={addFlat}
-                                        >
-                                            Add
-                                        </button>) : (<button
-                                            type="button"
-                                            className="btn btn-outline-danger"
-                                            onClick={() => removeFlat(index)}
-                                        >
-                                            Remove
-                                        </button>)}
-                                </div>
-                            </div>))}
-                    </div>
+                        <div className="col-md-2">
+                            {index === flats.length - 1 ? (<button
+                                type="button"
+                                className="btn btn-outline-primary"
+                                onClick={addFlat}
+                            >
+                                Add
+                            </button>) : (<button
+                                type="button"
+                                className="btn btn-outline-danger"
+                                onClick={() => removeFlat(index)}
+                            >
+                                Remove
+                            </button>)}
+                        </div>
+                    </div>))}
+                </div>
 
-                    <div className="d-grid">
-                        <button type="submit" className="btn btn-primary">
-                            Save All Flats
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </>)
+                <div className="d-grid">
+                    <button type="submit" className="btn btn-primary">
+                        Save All Flats
+                    </button>
+                </div>
+            </form>
+        </div>
+    </>)
 }
 
 

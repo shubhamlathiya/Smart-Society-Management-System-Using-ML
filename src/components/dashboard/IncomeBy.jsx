@@ -8,7 +8,7 @@ function IncomeBy() {
                 <div className="card-header d-flex align-items-center justify-content-between">
                     <h5 className="fw-bold mb-0">Income By </h5>
                     <div className="dropdown">
-                        <a href="/"  onClick={(e) => {
+                        <a href="/" onClick={(e) => {
                             e.preventDefault()
                         }}
                            className="btn btn-sm px-2 border shadow-sm btn-outline-white d-inline-flex align-items-center"

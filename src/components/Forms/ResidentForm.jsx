@@ -80,7 +80,7 @@ function ResidentForm(props) {
     };
 
     const handleNext = () => {
-        if (validateStep1()){
+        if (validateStep1()) {
             setStep(2);
         }
     };

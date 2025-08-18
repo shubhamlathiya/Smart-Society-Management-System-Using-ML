@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, {useRef} from "react";
 
-function EditHousingBlockForm({ modalId, handleSave, children }) {
+function EditHousingBlockForm({modalId, handleSave, children}) {
     const modalRef = useRef();
 
 

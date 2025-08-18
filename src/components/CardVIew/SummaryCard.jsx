@@ -3,7 +3,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
 function SummaryCard({
-                         title, value, icon, progressValue, trendPercentage, trendPositive,progressBar,iconColor
+                         title, value, icon, progressValue, trendPercentage, trendPositive, progressBar, iconColor
                      }) {
 
     // Map icons to React Icons components
@@ -44,7 +44,7 @@ function SummaryCard({
                     {/*</span>*/}
                 </div>
 
-                {progressValue !== undefined && (<div className="progress mb-2 progress-sm" style={{height:" 0.5rem"}}>
+                {progressValue !== undefined && (<div className="progress mb-2 progress-sm" style={{height: " 0.5rem"}}>
                     <div
                         className={`progress-bar ${progressBar}`}
                         role="progressbar"

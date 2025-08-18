@@ -64,7 +64,7 @@ function IncomeReport() {
 
             <div className="row">
                 <div className="col-12">
-                    <FinancialReportTable />
+                    <FinancialReportTable/>
                 </div>
             </div>
 
