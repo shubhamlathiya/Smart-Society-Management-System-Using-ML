@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function StatsCard({
                        title,

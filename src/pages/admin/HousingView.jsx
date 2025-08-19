@@ -13,7 +13,7 @@ function HousingView() {
         async function fetchHousingData() {
             try {
                 const response = await housingApi.getHousing();
-                console.log(response)// assuming this returns axios response
+                // console.log(response)// assuming this returns axios response
                 setHousingData(response); // set the data for the table
             } catch (error) {
                 console.error("Error fetching housing data:", error);
@@ -21,7 +21,7 @@ function HousingView() {
         }
 
         fetchHousingData().then();
-    }, []);
+    }, [housingData]);
 
     const housingColumns = [
         {header: "ID", accessor: "id"},

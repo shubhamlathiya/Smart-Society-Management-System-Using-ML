@@ -3,6 +3,8 @@ import PageHeader from "../../layout/PageHeader";
 import InfoCard from "../../components/CardVIew/InfoCard";
 import RecentTransactions from "../../components/dashboard/RecentTransactions";
 import PATHS from "../../utils/constants/Path";
+import StatsCard from "../../components/CardVIew/StatsCard";
+import SummaryCard from "../../components/CardVIew/SummaryCard";
 
 function AdminDashboard() {
     const transactions = [
@@ -24,7 +26,7 @@ function AdminDashboard() {
         
          <div className="container mt-4">
                 {/* Page Title */}
-                <PageHeader PageTitle={"Admin Dashboard"}/>
+                <PageHeader PageTitle={"Admin Dashboard"} />
 
                 {/* Top Stats */}
                 <div className="row g-4 mt-2">
@@ -90,6 +92,8 @@ function AdminDashboard() {
                     <div className="col-6 col-md-2">
                         <CardView title="About" description="About Us" click="/about"/>
                     </div>
+                    <StatsCard title={"incone"} trendPercentage={2.3} trendPositive={true} trendText={"9 month after"}/>
+                    <SummaryCard title={"unit"} trendPercentage={2.3} trendPositive={true}  progressValue={80}/>
                 </div>
 
                 {/* Transactions Section */}
