@@ -1,5 +1,5 @@
 import {Link, useLocation} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import "./Slidebar.css"; // make sure to import this
 
 import {
@@ -10,17 +10,29 @@ import {
     Wrench,
     List
 } from "react-bootstrap-icons";
+import PATHS from "../../utils/constants/Path";
 
 function Sidebar() {
     const location = useLocation();
-    const [collapsed, setCollapsed] = useState(false);
+    // const [collapsed, setCollapsed] = useState(false);
+
+    // Use local storage to use sidebar collapsed state between page refreshes
+    const [collapsed, setCollapsed] = useState(
+      () => JSON.parse(localStorage.getItem("sidebar-collapsed")) || false
+    ); 
+
+
+    useEffect(() => {
+        localStorage.setItem("sidebar-collapsed", JSON.stringify(collapsed));
+     }, [collapsed]);
 
     const menuItems = [
         {title: "Dashboard", icon: <HouseDoor/>, path: "/"},
-        {title: "Notice", icon: <FileText/>, path: "/notice"},
-        {title: "Housing", icon: <People/>, path: "/housing"},
-        {title: "About", icon: <InfoCircle/>, path: "/about"},
-        {title: "Service", icon: <Wrench/>, path: "/service"},
+        {title: "Notice", icon: <FileText/>, path: PATHS.NOTICE},
+        {title: "Housing", icon: <People/>, path: PATHS.HOUSING},
+        {title: "Eminities", icon: <People/>, path: PATHS.FACILITY},
+        {title: "Service", icon: <Wrench/>, path: PATHS.SERVICE},  
+        {title: "About", icon: <InfoCircle/>, path: PATHS.ABOUT},
     ];
 
     return (

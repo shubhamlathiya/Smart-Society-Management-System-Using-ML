@@ -15,6 +15,7 @@ import AboutView from "./pages/admin/AboutView";
 import HousingView from "./pages/admin/HousingView";
 import {useEffect} from "react";
 import Aos from "aos";
+import Facility from "./pages/admin/Facility";
 
 function App() {
 
@@ -47,9 +48,10 @@ function App() {
                 <Router>
                     <Routes>
                         <Route path="/" element={<AdminDashboard/>}/>
-                        <Route path={PATHS.NOTICE} element={<NoticeView/>}/>
-                        <Route path="/about" element={<AboutView/>}/>
                         <Route path={PATHS.HOUSING} element={<HousingView/>}/>
+                        <Route path={PATHS.FACILITY} element={<Facility/>}/>
+                        <Route path={PATHS.NOTICE} element={<NoticeView/>}/>
+                        <Route path={PATHS.ABOUT} element={<AboutView/>}/>
                     </Routes>
                 </Router>
                 // <ComplaintForm/>

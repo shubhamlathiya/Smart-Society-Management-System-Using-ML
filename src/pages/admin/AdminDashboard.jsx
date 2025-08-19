@@ -88,6 +88,9 @@ function AdminDashboard() {
                         <CardView title="Notice" description="Notices" click={PATHS.NOTICE}/>
                     </div>
                     <div className="col-6 col-md-2">
+                        <CardView title=" Add Eminities" description="Eminities" click={PATHS.FACILITY}/>
+                    </div>
+                    <div className="col-6 col-md-2">
                         <CardView title="About" description="About Us" click="/about"/>
                     </div>
                 </div>
