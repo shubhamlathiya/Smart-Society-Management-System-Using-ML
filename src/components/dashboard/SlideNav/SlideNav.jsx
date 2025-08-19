@@ -10,8 +10,8 @@ import {
   InfoCircle,
   Wrench,
   List,
-} from "react-bootstrap-icons"; 
-import PATHS from "../../utils/constants/Path";
+} from "react-bootstrap-icons";
+import PATHS from "../../../utils/constants/Path";
 
 function SlideNav() {
   const location = useLocation();
