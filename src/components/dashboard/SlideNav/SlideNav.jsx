@@ -11,7 +11,7 @@ import {
   Wrench,
   List,
 } from "react-bootstrap-icons"; 
-import PATHS from "../../utils/constants/Path";
+import PATHS from "../../../utils/constants/Path";
 
 function SlideNav() {
   const location = useLocation();
