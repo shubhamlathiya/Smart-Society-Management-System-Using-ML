@@ -10,12 +10,13 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 // import ComplaintForm from "./components/Forms/ComplaintForm";
 import NoticeView from "./pages/admin/NoticeView";
 import PATHS from "./utils/constants/Path";
-import AboutView from "./pages/admin/AboutView";
+import AboutView from "./pages/admin/About/AboutView";
 
 import HousingView from "./pages/admin/HousingView";
 import {useEffect} from "react";
 import Aos from "aos";
-import Facility from "./pages/admin/Facility";
+import Facility from "./pages/residence/FacilityResidence";
+import LayoutSlideNav from "./layout/LayoutSlideNav";
 
 function App() {
 
@@ -47,11 +48,12 @@ function App() {
 
                 <Router>
                     <Routes>
-                        <Route path="/" element={<AdminDashboard/>}/>
-                        <Route path={PATHS.HOUSING} element={<HousingView/>}/>
-                        <Route path={PATHS.FACILITY} element={<Facility/>}/>
-                        <Route path={PATHS.NOTICE} element={<NoticeView/>}/>
-                        <Route path={PATHS.ABOUT} element={<AboutView/>}/>
+                        <Route path='/' element={<LayoutSlideNav><AdminDashboard /></LayoutSlideNav>}/>
+                        <Route path={PATHS.HOUSING} element={<LayoutSlideNav><HousingView/></LayoutSlideNav>}/>
+                        <Route path={PATHS.FACILITY} element={<LayoutSlideNav><Facility /></LayoutSlideNav>}/>
+                        <Route path={PATHS.NOTICE} element={<LayoutSlideNav><NoticeView /></LayoutSlideNav>}/>
+                        <Route path={PATHS.ABOUT} element={<LayoutSlideNav><AboutView /></LayoutSlideNav>}/>
+                       
                     </Routes>
                 </Router>
                 // <ComplaintForm/>

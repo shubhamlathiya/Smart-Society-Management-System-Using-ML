@@ -3,7 +3,6 @@ import PageHeader from "../../layout/PageHeader";
 import InfoCard from "../../components/CardVIew/InfoCard";
 import RecentTransactions from "../../components/dashboard/RecentTransactions";
 import PATHS from "../../utils/constants/Path";
-import Sidebar from "../../components/dashboard/Slidebar";
 
 function AdminDashboard() {
     const transactions = [
@@ -22,10 +21,8 @@ function AdminDashboard() {
     ];
 
     return (
-        <div className="d-flex">
-
-            <Sidebar/>
-            <div className="container-fluid p-4 bg-light">
+        
+         <div className="container mt-4">
                 {/* Page Title */}
                 <PageHeader PageTitle={"Admin Dashboard"}/>
 
@@ -88,7 +85,7 @@ function AdminDashboard() {
                         <CardView title="Notice" description="Notices" click={PATHS.NOTICE}/>
                     </div>
                     <div className="col-6 col-md-2">
-                        <CardView title=" Add Eminities" description="Eminities" click={PATHS.FACILITY}/>
+                        <CardView title=" Add Amenities" description="Amenities" click={PATHS.FACILITY}/>
                     </div>
                     <div className="col-6 col-md-2">
                         <CardView title="About" description="About Us" click="/about"/>
@@ -123,7 +120,6 @@ function AdminDashboard() {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 
