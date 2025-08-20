@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {housingApi} from "../../../services/api";
 import {unitTypes} from "../../../utils/constants/appConstants";
 
-function AddHousingBlockForm() {
+function AddHousingBlockForm({onSuccess}) {
 
 
     const [blockNumber, setBlockNumber] = useState('');
@@ -45,6 +45,7 @@ function AddHousingBlockForm() {
         console.log(response);
         if (response) {
             alert(`${response.data.message}`);
+            onSuccess && onSuccess();  // ✅ refresh housing data in parent
         }
 
         setBlockNumber('');

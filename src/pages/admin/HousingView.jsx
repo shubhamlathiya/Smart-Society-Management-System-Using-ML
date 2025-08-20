@@ -9,19 +9,18 @@ function HousingView() {
 
     const [housingData, setHousingData] = useState([]);
 
-    useEffect(() => {
-        async function fetchHousingData() {
-            try {
-                const response = await housingApi.getHousing();
-                // console.log(response)// assuming this returns axios response
-                setHousingData(response); // set the data for the table
-            } catch (error) {
-                console.error("Error fetching housing data:", error);
-            }
+    const fetchHousingData = async () => {
+        try {
+            const response = await housingApi.getHousing();
+            setHousingData(response);
+        } catch (error) {
+            console.error("Error fetching housing data:", error);
         }
+    };
 
-        fetchHousingData().then();
-    }, [housingData]);
+    useEffect(() => {
+        fetchHousingData().then((housingData) => {});
+    }, []);
 
     const housingColumns = [
         {header: "ID", accessor: "id"},
@@ -34,7 +33,7 @@ function HousingView() {
                 <PageHeader PageTitle={"Housing"}/>
                 <div className="row">
                     <div className="col-12">
-                        <AddHousingBlockForm/>
+                        <AddHousingBlockForm onSuccess={fetchHousingData} />
                     </div>
                     <div className="col-12 mt-3">
                         <HousingTable data={housingData} columns={housingColumns}/>
