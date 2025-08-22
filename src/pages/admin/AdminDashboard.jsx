@@ -5,6 +5,15 @@ import RecentTransactions from "../../components/dashboard/RecentTransactions";
 import PATHS from "../../utils/constants/Path";
 import StatsCard from "../../components/CardVIew/StatsCard";
 import SummaryCard from "../../components/CardVIew/SummaryCard";
+import BookingCalendar from "../../components/calendar/BookingCalendar";
+import BookingPoliciesFAQ from "../../components/Booking/BookingPoliciesFAQ";
+import PreRegisterVisitors from "../../components/Visitor/PreRegisterVisitors";
+import ValidateCode from "../../components/Visitor/ValidateCode";
+import VisitorLogs from "../../components/Visitor/VisitorLogs";
+import UserProfile from "../Profile/Profile";
+import BudgetPlanning from "../../components/Budget/BudgetPlanning";
+import TrackComplaints from "../../components/Complaints/TrackComplaints";
+import ResolvedIssues from "../../components/Complaints/ResolvedIssues";
 
 function AdminDashboard() {
     const transactions = [
@@ -22,11 +31,97 @@ function AdminDashboard() {
         },
     ];
 
+    const columns = ["Name", "Email", "Phone", "Visit Date", "Purpose", "Code"];
+
+    const visitors = [
+        {
+            name: "Arav Sharma",
+            email: "arav.sharma24@gmail.com",
+            phone: "9876543210",
+            visitDate: "2025-08-25",
+            purpose: "Meeting",
+            code: 654321
+        },
+        {
+            name: "Vivaan Patel",
+            email: "vivaan.patel34@gmail.com",
+            phone: "9123456780",
+            visitDate: "2025-08-26",
+            purpose: "Delivery",
+            code: 123456
+        },
+        {
+            name: "Aditya Reddy",
+            email: "aditya.reddy42@gmail.com",
+            phone: "9988776655",
+            visitDate: "2025-08-27",
+            purpose: "Maintenance",
+            code: 789012
+        },
+        {
+            name: "Vihaan Nair",
+            email: "vihaan.nair19@gmail.com",
+            phone: "9012345678",
+            visitDate: "2025-08-28",
+            purpose: "Guest",
+            code: 345678
+        },
+        {
+            name: "Arjun Gupta",
+            email: "arjun.gupta77@gmail.com",
+            phone: "9876501234",
+            visitDate: "2025-08-29",
+            purpose: "Delivery",
+            code: 901234
+        },
+        {
+            name: "Sai Kapoor",
+            email: "sai.kapoor53@gmail.com",
+            phone: "9123467890",
+            visitDate: "2025-08-30",
+            purpose: "Meeting",
+            code: 567890
+        },
+        {
+            name: "Krishna Bose",
+            email: "krishna.bose61@gmail.com",
+            phone: "9988012345",
+            visitDate: "2025-09-01",
+            purpose: "Guest",
+            code: 234567
+        },
+        {
+            name: "Shivansh Chopra",
+            email: "shivansh.chopra84@gmail.com",
+            phone: "9012345671",
+            visitDate: "2025-09-02",
+            purpose: "Maintenance",
+            code: 876543
+        },
+        {
+            name: "Aryan Iyer",
+            email: "aryan.iyer21@gmail.com",
+            phone: "9876540987",
+            visitDate: "2025-09-03",
+            purpose: "Delivery",
+            code: 432109
+        },
+        {
+            name: "Ishaan Jha",
+            email: "ishaan.jha46@gmail.com",
+            phone: "9123456701",
+            visitDate: "2025-09-04",
+            purpose: "Meeting",
+            code: 678901
+        }
+    ];
+
     return (
         
          <div className="container mt-4">
                 {/* Page Title */}
                 <PageHeader PageTitle={"Admin Dashboard"} />
+
 
                 {/* Top Stats */}
                 <div className="row g-4 mt-2">
@@ -122,6 +217,15 @@ function AdminDashboard() {
                             </div>
                         </div>
                     </div>
+                    <BookingCalendar />
+                    <BookingPoliciesFAQ />
+                    <PreRegisterVisitors />
+                    <ValidateCode />
+                    <VisitorLogs visitors={visitors} columns={columns} />
+                    <UserProfile />
+                    <BudgetPlanning />
+                    <TrackComplaints />
+                    <ResolvedIssues />
                 </div>
             </div>
     );
