@@ -6,7 +6,7 @@ function AddHousingBlockForm({onSuccess}) {
 
 
     const [blockNumber, setBlockNumber] = useState('');
-    const [flats, setFlats] = useState([{flatNumber: '', type: '1BHK'}]);
+    const [flats, setFlats] = useState([{flatNumber: '', type: unitTypes[0]}]);
 
     const handleBlockNumberChange = (e) => {
         setBlockNumber(e.target.value);
@@ -71,7 +71,8 @@ function AddHousingBlockForm({onSuccess}) {
 
                 <div className="mb-3">
                     <h6 className="mb-3">Flats in this Block</h6>
-                    {flats.map((flat, index) => (<div key={index} className="row g-3 mb-3 align-items-center">
+                    {flats.map((flat, index) => (
+                        <div key={index} className="row g-3 mb-3 align-items-center">
                         <div className="col-md-5">
                             <input
                                 type="text"

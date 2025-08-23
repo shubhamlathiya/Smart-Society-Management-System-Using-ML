@@ -3,7 +3,7 @@ const PATHS = {
     SERVICE: "/service",
     HOUSING: "/housing",
     NOTICE: "/notice",
-    FACILITY: "/facility",
+    ADDFACILITY: "/addfacility",
     ABOUT: "/about"
 }
 

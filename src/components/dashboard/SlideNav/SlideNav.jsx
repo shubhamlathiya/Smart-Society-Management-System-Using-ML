@@ -6,7 +6,7 @@ import {
   HouseDoor,
   FileText,
   People,
-  Activity,
+  Building,
   InfoCircle,
   Wrench,
   List,
@@ -28,7 +28,7 @@ function SlideNav() {
     { title: "Dashboard", icon: <HouseDoor />, path: "/" },
     { title: "Notice", icon: <FileText />, path: PATHS.NOTICE },
     { title: "Housing", icon: <People />, path: PATHS.HOUSING },
-    { title: "Amenities", icon: <Activity />, path: PATHS.FACILITY },
+    { title: "Amenities", icon: <Building />, path: PATHS.ADDFACILITY },
     { title: "Service", icon: <Wrench />, path: PATHS.SERVICE },
     { title: "About", icon: <InfoCircle />, path: PATHS.ABOUT },
   ];

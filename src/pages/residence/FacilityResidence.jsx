@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./Facility.css";
+import {facilityTypes} from "../../utils/constants/appConstants"; // custom CSS
 
 function Facility() {
   const [facility, setFacility] = useState("");
@@ -32,35 +33,29 @@ function Facility() {
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">Add Facility Booking</h2>
-      <h2>THIS PAGE IS FOR RESIDENCE SO NO REMOVE </h2>
+    <div className="facility-container">
+      <h2 className="page-title">Add Facility Booking</h2>
+      <h4 className="note">THIS PAGE IS FOR RESIDENCE SO NO REMOVE</h4>
 
       {/* Facility Form */}
-      <form className="row g-3" onSubmit={handleSubmit}>
+      <form className="facility-form" onSubmit={handleSubmit}>
         {/* Facility Name */}
-        <div className="col-md-6">
-          <label className="form-label">Facility</label>
+        <div className="form-group">
+          <label>Facility</label>
           <select
-            className="form-select"
             value={facility}
             onChange={(e) => setFacility(e.target.value)}
             required
           >
-            <option value="">-- Select Facility --</option>
-            <option value="Hall">Hall</option>
-            <option value="Theater">Theater</option>
-            <option value="Garden">Garden</option>
-            <option value="Clubhouse">Clubhouse</option>
+              {facilityTypes.map((facility,index) => (<option value={facility} key={facility}>{facility}</option>))}
           </select>
         </div>
 
         {/* From Date */}
-        <div className="col-md-3">
-          <label className="form-label">From Date</label>
+        <div className="form-group">
+          <label>From Date</label>
           <input
             type="date"
-            className="form-control"
             value={fromDate}
             onChange={(e) => setFromDate(e.target.value)}
             required
@@ -68,11 +63,10 @@ function Facility() {
         </div>
 
         {/* To Date */}
-        <div className="col-md-3">
-          <label className="form-label">To Date</label>
+        <div className="form-group">
+          <label>To Date</label>
           <input
             type="date"
-            className="form-control"
             value={toDate}
             onChange={(e) => setToDate(e.target.value)}
             required
@@ -80,11 +74,10 @@ function Facility() {
         </div>
 
         {/* From Time */}
-        <div className="col-md-3">
-          <label className="form-label">From Time</label>
+        <div className="form-group">
+          <label>From Time</label>
           <input
             type="time"
-            className="form-control"
             value={fromTime}
             onChange={(e) => setFromTime(e.target.value)}
             required
@@ -92,11 +85,10 @@ function Facility() {
         </div>
 
         {/* To Time */}
-        <div className="col-md-3">
-          <label className="form-label">To Time</label>
+        <div className="form-group">
+          <label>To Time</label>
           <input
             type="time"
-            className="form-control"
             value={toTime}
             onChange={(e) => setToTime(e.target.value)}
             required
@@ -104,17 +96,15 @@ function Facility() {
         </div>
 
         {/* Submit Button */}
-        <div className="col-12">
-          <button type="submit" className="btn btn-primary">
-            Add Facility
-          </button>
-        </div>
+        <button type="submit" className="submit-btn">
+          Add Facility
+        </button>
       </form>
 
       {/* Display Added Facilities */}
-      <div className="mt-5">
-        <h4>Booked Facilities</h4>
-        <table className="table table-bordered">
+      <div className="booked-section">
+        <h3>Booked Facilities</h3>
+        <table className="facility-table">
           <thead>
             <tr>
               <th>Facility</th>

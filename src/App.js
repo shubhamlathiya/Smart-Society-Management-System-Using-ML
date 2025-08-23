@@ -15,8 +15,8 @@ import AboutView from "./pages/admin/About/AboutView";
 import HousingView from "./pages/admin/HousingView";
 import {useEffect} from "react";
 import Aos from "aos";
-import Facility from "./pages/residence/FacilityResidence";
 import LayoutSlideNav from "./layout/LayoutSlideNav";
+import AddFacility from "./pages/admin/AddFacility";
 
 function App() {
 
@@ -50,8 +50,9 @@ function App() {
                     <Routes>
                         <Route path='/' element={<LayoutSlideNav><AdminDashboard /></LayoutSlideNav>}/>
                         <Route path={PATHS.HOUSING} element={<LayoutSlideNav><HousingView/></LayoutSlideNav>}/>
-                        <Route path={PATHS.FACILITY} element={<LayoutSlideNav><Facility /></LayoutSlideNav>}/>
+                        <Route path={PATHS.ADDFACILITY} element={<LayoutSlideNav><AddFacility /></LayoutSlideNav>}/>
                         <Route path={PATHS.NOTICE} element={<LayoutSlideNav><NoticeView /></LayoutSlideNav>}/>
+                        <Route path={PATHS.SERVICE} element={<LayoutSlideNav><NoticeView /></LayoutSlideNav>}/>
                         <Route path={PATHS.ABOUT} element={<LayoutSlideNav><AboutView /></LayoutSlideNav>}/>
                        
                     </Routes>
