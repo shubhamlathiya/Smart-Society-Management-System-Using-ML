@@ -1,0 +1,54 @@
+import axios from 'axios';
+import {
+    COMPLAINT_POST,
+    HOUSING_GET,
+    HOUSING_POST,
+    COMPLAINTS,
+    COMPLAINT_STATUS,
+    STATS,
+} from "../utils/constants/apiConstants";
+
+// ✅ axios instance with correct base URL
+const API = axios.create({
+    baseURL: "http://127.0.0.1:5000",
+    headers: {'Content-Type': 'application/json'},
+});
+
+// ---------------- HOUSING ----------------
+export const housingApi = {
+    addHousing: (housingUnitsData) => {
+        return axios.post(HOUSING_POST, housingUnitsData, {
+            headers: {'Content-Type': 'application/json'},
+        }).catch(error => {
+            console.error('Add Housing Error:', error.response || error.message);
+            throw error;
+        });
+    },
+
+    getHousing: async () => {
+        try {
+            const response = await axios.get(HOUSING_GET);
+            return response.data;
+        } catch (error) {
+            console.error('Get Housing Error:', error.response || error.message);
+            throw error;
+        }
+    }
+};
+
+// ---------------- COMPLAINT ----------------
+export const complaintApi = {
+  addComplaint: (complaintData) => {
+    return API.post(COMPLAINTS, complaintData)   // ✅ use the axios instance with baseURL
+      .then(res => res)
+      .catch(error => {
+        console.error('Add Complaint Error:', error.response || error.message);
+        throw error;  // ✅ rethrow so try/catch in React works
+      });
+  }
+};
+
+// ---------------- ADMIN SIDE ----------------
+export const fetchComplaints = () => API.get(COMPLAINTS);
+export const updateStatus = (id, status) => API.patch(COMPLAINT_STATUS(id), {status});
+export const fetchStats = () => API.get(STATS);
