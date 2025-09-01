@@ -1,14 +1,15 @@
 from flask import Blueprint, jsonify, request
 
-from models.HousingUnit import HousingUnit
-from utils.config import db
+from backend.models.HousingUnit import HousingUnit
+
+from backend.utils.config import db
 
 housing = Blueprint('housing', __name__)
 
 
 @housing.route('/', methods=['GET'], endpoint='housing')
 def housing123():
-    housing  = HousingUnit.query.filter_by().all()
+    housing = HousingUnit.query.filter_by().all()
     print(housing)
 
     housing_data = [{
@@ -49,7 +50,7 @@ def add_housing_units():
 
         db.session.add_all(new_units)
         db.session.commit()
-    
+
         return jsonify({"status": "success", "message": "Housing units added successfully"}), 201
 
     except Exception as e:
