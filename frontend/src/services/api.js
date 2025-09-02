@@ -1,24 +1,17 @@
 import axios from 'axios';
 import {
-    COMPLAINT_POST,
-    HOUSING_GET,
-    HOUSING_POST,
-    COMPLAINTS,
-    COMPLAINT_STATUS,
-    VISITOR_POST,
-    STATS, VISITOR_GET,
+    COMPLAINT_POST, HOUSING_GET, HOUSING_POST, COMPLAINTS, COMPLAINT_STATUS, VISITOR_POST, STATS, VISITOR_GET,
 } from "../utils/constants/apiConstants";
 
 // ✅ axios instance with correct base URL
 const API = axios.create({
-    baseURL: "http://127.0.0.1:5000",
-    headers: {'Content-Type': 'application/json'},
+    baseURL: "http://127.0.0.1:5000", headers: {'Content-Type': 'application/json'},
 });
 
 // ---------------- HOUSING ----------------
 export const housingApi = {
     addHousing: (housingUnitsData) => {
-        return axios.post(HOUSING_POST, housingUnitsData, {
+        return API.post(HOUSING_POST, housingUnitsData, {
             headers: {'Content-Type': 'application/json'},
         }).catch(error => {
             console.error('Add Housing Error:', error.response || error.message);
@@ -59,8 +52,7 @@ export const visitorsApi = {
                 console.error('Add Visitors Error:', error.response || error.message);
                 throw error;
             });
-    },
-    getVisitors: async () => {
+    }, getVisitors: async () => {
         try {
             const response = await axios.get(VISITOR_GET);
             return response.data;
@@ -68,6 +60,13 @@ export const visitorsApi = {
             console.error('Get Visitors Error:', error.response || error.message);
             throw error;
         }
+    }, verifyVisitor: (code) => {
+        return API.post(VISITOR_POST, code)
+            .then(res => res)
+            .catch(error => {
+                console.error('Visitors Error:', error.response || error.message);
+                throw error;
+            });
     }
 }
 
