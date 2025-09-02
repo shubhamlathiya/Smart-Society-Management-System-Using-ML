@@ -137,8 +137,7 @@ function NoticeView() {
                     />
                     <button
                         className="btn btn-outline-primary"
-                        onClick={() => setShowPicker(!showPicker)}
-                    >
+                        onClick={() => setShowPicker(!showPicker)}>
                         {format(dateRange[0].startDate, "dd MMM yyyy")} -{" "}
                         {format(dateRange[0].endDate, "dd MMM yyyy")}
                     </button>
