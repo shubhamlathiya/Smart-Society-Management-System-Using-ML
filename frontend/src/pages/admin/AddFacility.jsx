@@ -2,19 +2,19 @@ import React, {useState} from "react";
 import PageHeader from "../../layout/PageHeader";
 import HousingTable from "../../components/TableView/HousingTable";
 
-function AddFacility(){
-    const [addFacility,setAddFacility] = useState([{name:"",price: "", unit: "" }])
-    const [facilities,setFacility] = useState([])
+function AddFacility() {
+    const [addFacility, setAddFacility] = useState([{name: "", price: "", unit: ""}])
+    const [facilities, setFacility] = useState([])
 
-    function handleNameChange(index,value) {
+    function handleNameChange(index, value) {
         const updateFacility = [...addFacility];
-        updateFacility[index].name=value;
+        updateFacility[index].name = value;
         setAddFacility(updateFacility);
     }
 
-    function handlePriceChange(index,value) {
+    function handlePriceChange(index, value) {
         const updateFacility = [...addFacility];
-        updateFacility[index].price=value;
+        updateFacility[index].price = value;
         setAddFacility(updateFacility);
 
     }
@@ -25,23 +25,21 @@ function AddFacility(){
         setAddFacility(updateFacility);
     }
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault();
         setFacility([...facilities, ...addFacility]);
         console.log("addFacility:", addFacility);
-        setAddFacility([{ name: "", price: "", unit: "" }]);
+        setAddFacility([{name: "", price: "", unit: ""}]);
         console.log("setAddFacility:", setAddFacility);
 
     }
 
-    const facilityColumns = [
-        {header: "Facility Name", accessor: "name"},
-        {header: "Rent", accessor: "price"},
-        { header: "Unit", accessor: "unit" },
-    ]
+    const facilityColumns = [{header: "Facility Name", accessor: "name"}, {
+        header: "Rent",
+        accessor: "price"
+    }, {header: "Unit", accessor: "unit"},]
 
-    return (
-        // <div className="mb-3">
+    return (// <div className="mb-3">
         //     <input type="text" onChange={(e)=>(handleSubmit(e.target.value))} value={addFacility} placeholder="Add Facility"/>
         //     <p>{addFacility}</p>
         // </div>
@@ -101,22 +99,18 @@ function AddFacility(){
                                         <div>
                                             <button type="submit" className="btn btn-primary">Add Facility</button>
                                         </div>
-                                    </div>
-                                ))}
+                                    </div>))}
 
                             </div>
                         </form>
                     </div>
                 </div>
-                 <div className="col-12 mt-3">
-
-                     <HousingTable
-                         data={facilities}
-                         columns={facilityColumns}
-                     />
-
-
-                    </div>
+                <div className="col-12 mt-3">
+                    <HousingTable
+                        data={facilities}
+                        columns={facilityColumns}
+                    />
+                </div>
             </div>
         </div>
 

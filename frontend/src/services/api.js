@@ -5,7 +5,8 @@ import {
     HOUSING_POST,
     COMPLAINTS,
     COMPLAINT_STATUS,
-    STATS,
+    VISITOR_POST,
+    STATS, VISITOR_GET,
 } from "../utils/constants/apiConstants";
 
 // ✅ axios instance with correct base URL
@@ -38,15 +39,37 @@ export const housingApi = {
 
 // ---------------- COMPLAINT ----------------
 export const complaintApi = {
-  addComplaint: (complaintData) => {
-    return API.post(COMPLAINTS, complaintData)   // ✅ use the axios instance with baseURL
-      .then(res => res)
-      .catch(error => {
-        console.error('Add Complaint Error:', error.response || error.message);
-        throw error;  // ✅ rethrow so try/catch in React works
-      });
-  }
+    addComplaint: (complaintData) => {
+        return API.post(COMPLAINTS, complaintData)
+            .then(res => res)
+            .catch(error => {
+                console.error('Add Complaint Error:', error.response || error.message);
+                throw error;
+            });
+    }
 };
+
+
+// -----------------Visitor -------------------
+export const visitorsApi = {
+    addVisitor: (visitorData) => {
+        return API.post(VISITOR_POST, visitorData)
+            .then(res => res)
+            .catch(error => {
+                console.error('Add Visitors Error:', error.response || error.message);
+                throw error;
+            });
+    },
+    getVisitors: async () => {
+        try {
+            const response = await axios.get(VISITOR_GET);
+            return response.data;
+        } catch (error) {
+            console.error('Get Visitors Error:', error.response || error.message);
+            throw error;
+        }
+    }
+}
 
 // ---------------- ADMIN SIDE ----------------
 export const fetchComplaints = () => API.get(COMPLAINTS);

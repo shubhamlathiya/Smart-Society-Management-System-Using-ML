@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify, request
 
-from backend.models.HousingUnit import HousingUnit
+from models.HousingUnitModel import HousingUnit
 
-from backend.utils.config import db
+from utils.config import db
 
 housing = Blueprint('housing', __name__)
 

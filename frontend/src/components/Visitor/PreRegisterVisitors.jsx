@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {visitorsApi} from "../../services/api";
 
 function PreRegisterVisitorsWithCode() {
     const [visitors, setVisitors] = useState([]);
@@ -10,31 +11,31 @@ function PreRegisterVisitorsWithCode() {
         purpose: ""
     });
 
-    // Generate random 6-digit code
-    const generateCode = () => Math.floor(100000 + Math.random() * 900000);
-
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!formData.name || !formData.email || !formData.visitDate) {
             alert("Please fill in all required fields.");
             return;
         }
-        const visitorWithCode = { ...formData, code: generateCode() };
-        setVisitors([...visitors, visitorWithCode]);
-        setFormData({ name: "", email: "", phone: "", visitDate: "", purpose: "" });
+        const response = await visitorsApi.addVisitor(formData);
+        if (response?.data) {
+            alert(response.data.status || "Visitor submitted");
+        }
+
+        // const visitorWithCode = {...formData, code: generateCode()};
+        // setVisitors([...visitors, visitorWithCode]);
+        setFormData({name: "", email: "", phone: "", visitDate: "", purpose: ""});
     };
 
     return (
         <div className="container mt-5">
-            <h3 className="mb-4 text-center">Pre-register Visitors & Generate Code</h3>
-
             <div className="row">
                 {/* Form Section */}
-                <div className="col-lg-6 mb-4">
+                <div className="col-lg-12 mb-4">
                     <div className="card shadow-sm p-3">
                         <h5 className="mb-3">Visitor Registration Form</h5>
                         <form onSubmit={handleSubmit}>
@@ -99,23 +100,6 @@ function PreRegisterVisitorsWithCode() {
                     </div>
                 </div>
 
-                {/* Code Cards */}
-                <div className="col-lg-6 mb-4">
-                    <h5 className="mb-3">Visitor Codes</h5>
-                    <div className="d-flex flex-column gap-3">
-                        {visitors.length === 0 && <p>No visitors pre-registered yet.</p>}
-                        {visitors.map((v, idx) => (
-                            <div key={idx} className="card shadow-sm p-3">
-                                <h6 className="mb-1">{v.name}</h6>
-                                <p className="mb-0">Email: {v.email}</p>
-                                <p className="mb-0">Phone: {v.phone || "N/A"}</p>
-                                <p className="mb-0">Visit Date: {v.visitDate}</p>
-                                <p className="mb-0">Purpose: {v.purpose || "N/A"}</p>
-                                <p className="mb-0 fw-bold mt-1">Code: {v.code}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
         </div>
     );
