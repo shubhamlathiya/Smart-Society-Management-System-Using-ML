@@ -26,6 +26,8 @@ import AddComplaint from "./pages/residence/AddComplaints";
 import Service from "./pages/admin/Service";
 import ViewComplaints from "./pages/admin/ComplaintView";
 import ComplaintCharts from "./components/Complaints/ComplaintsChart";
+import StaffManagementPage from "./pages/admin/StaffManagementPage";
+import HousingMemberManagement from "./pages/admin/HousingMemberManagement";
 
 function App() {
     const [role, setRole] = useState(null); // 'admin' or 'resident'
@@ -71,6 +73,9 @@ function App() {
                             <Route path='/' element={<LayoutSlideNav role={role}><AdminDashboard/></LayoutSlideNav>}/>
                             <Route path={PATHS.HOUSING} element={<LayoutSlideNav role={role}><HousingView/></LayoutSlideNav>}/>
                             <Route path={PATHS.ADDFACILITY} element={<LayoutSlideNav role={role}><AddFacility/></LayoutSlideNav>}/>
+                            <Route path={PATHS.STAFF} element={<LayoutSlideNav role={role}><StaffManagementPage /></LayoutSlideNav>} />
+                            <Route path={PATHS.HOUSING_MEMBERS} element={<LayoutSlideNav role={role}><HousingMemberManagement /></LayoutSlideNav>} />
+
                             <Route path={PATHS.NOTICE} element={<LayoutSlideNav role={role}><NoticeView/></LayoutSlideNav>}/>
                             <Route path={PATHS.SERVICE} element={<LayoutSlideNav role={role}><Service/></LayoutSlideNav>}/>
                             <Route path={PATHS.ABOUT} element={<LayoutSlideNav role={role}><AboutView/></LayoutSlideNav>}/>

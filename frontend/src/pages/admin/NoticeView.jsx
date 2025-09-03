@@ -6,6 +6,7 @@ import {endOfDay, format, isWithinInterval, parse, startOfDay} from "date-fns";
 import {DateRangePicker} from "react-date-range";
 import {enUS} from "date-fns/locale";
 import colors from "../../utils/constants/color";
+import NoticeForm from "../../components/Forms/NoticeForm";
 
 function NoticeView() {
     const today = new Date();
@@ -205,6 +206,8 @@ function NoticeView() {
                         )}
                         </tbody>
                     </table>
+
+                    <NoticeForm />
                 </div>
             </div>
     );

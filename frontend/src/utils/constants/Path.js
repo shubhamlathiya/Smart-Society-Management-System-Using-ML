@@ -10,7 +10,8 @@ const PATHS = {
     FACED: "/faced",
     VIEWCOMPLAINT: "/view-complaint",
     COMPLAINTCHART: "/complaint-chart",
-
+    STAFF : "/staff",
+    HOUSING_MEMBERS : "/housing-members",
 
     //Residence
     FACILITY: "/facility",
