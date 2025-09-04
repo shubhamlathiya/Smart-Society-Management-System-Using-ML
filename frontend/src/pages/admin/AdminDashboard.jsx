@@ -17,6 +17,7 @@ import ResolvedIssues from "../../components/Complaints/ResolvedIssues";
 import ComplaintForm from "../../components/Forms/ComplaintForm";
 import AdminComplaints from "./ComplaintView";
 import ComplaintCharts from "../../components/Complaints/ComplaintsChart";
+import UtilityForm from "../../components/Forms/UtilityForm";
 
 function AdminDashboard() {
     const transactions = [
@@ -230,6 +231,7 @@ function AdminDashboard() {
                     <BudgetPlanning />
                     <TrackComplaints />
                     <ResolvedIssues />
+                    <UtilityForm />
                 </div>
             </div>
     );
