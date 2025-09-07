@@ -3,7 +3,9 @@ const PATHS = {
     //Admin
     DASHBOARD: "/dashboard",
     SERVICE: "/service",
+    BLOCK: "/block",
     HOUSING: "/housing",
+    UTILITYUSAGE : "/utilityusage",
     NOTICE: "/notice",
     ADDFACILITY: "/addfacility",
     ABOUT: "/about",

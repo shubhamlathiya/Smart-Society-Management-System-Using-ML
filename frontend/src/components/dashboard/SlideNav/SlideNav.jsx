@@ -29,7 +29,9 @@ function SlideNav({role}) {
         ? [
             {title: "Dashboard", icon: <HouseDoor/>, path: "/"},
             {title: "Notice", icon: <FileText/>, path: PATHS.NOTICE},
+            {title: "Housing Block", icon: <FileText/>, path: PATHS.BLOCK},
             {title: "Housing", icon: <People/>, path: PATHS.HOUSING},
+            {title: "Utility Usage", icon: <People/>, path: PATHS.UTILITYUSAGE},
             {title: "Staff Management", icon: <People/>, path: PATHS.STAFF},
             {title: "Housing Members", icon: <People/>, path: PATHS.HOUSING_MEMBERS},
             {title: "Amenities", icon: <Building/>, path: PATHS.ADDFACILITY},
