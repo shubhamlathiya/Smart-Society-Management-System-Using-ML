@@ -11,6 +11,8 @@ notices = Blueprint("notices", __name__)
 @notices.route("/", methods=["GET"])
 def get_notices():
     all_notices = Notice.query.all()
+    print(list(all_notices)
+          )
     return jsonify([
         {
             "id": n.id,

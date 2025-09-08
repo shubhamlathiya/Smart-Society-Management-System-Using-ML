@@ -4,6 +4,7 @@ from utils.config import db
 class Notice(db.Model):
     __tablename__ = "notice"
 
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     notice_id = db.Column(db.String(50), primary_key=True)
     title = db.Column(db.String(200), nullable=False)
     body = db.Column(db.Text, nullable=False)
