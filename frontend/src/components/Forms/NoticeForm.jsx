@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-function NoticeForm({ onAddNotice }) {
+function NoticeForm({onAddNotice}) {
     const [formData, setFormData] = useState({
         title: "",
         body: "",
@@ -18,34 +18,34 @@ function NoticeForm({ onAddNotice }) {
 
     // Options for dropdowns
     const categoryOptions = [
-        { value: "", label: "Select Category" },
-        { value: "general", label: "General Notice" },
-        { value: "emergency", label: "Emergency Alert" },
-        { value: "maintenance", label: "Maintenance Update" },
-        { value: "event", label: "Event Announcement" },
-        { value: "policy", label: "Policy Change" },
-        { value: "security", label: "Security Advisory" }
+        {value: "", label: "Select Category"},
+        {value: "general", label: "General Notice"},
+        {value: "emergency", label: "Emergency Alert"},
+        {value: "maintenance", label: "Maintenance Update"},
+        {value: "event", label: "Event Announcement"},
+        {value: "policy", label: "Policy Change"},
+        {value: "security", label: "Security Advisory"}
     ];
 
     const audienceOptions = [
-        { value: "", label: "Select Target Audience" },
-        { value: "all", label: "All Residents" },
-        { value: "owners", label: "Flat Owners Only" },
-        { value: "tenants", label: "Tenants Only" },
-        { value: "staff", label: "Staff Only" },
-        { value: "visitors", label: "Visitors" },
-        { value: "block_a", label: "Block A Residents" },
-        { value: "block_b", label: "Block B Residents" },
-        { value: "block_c", label: "Block C Residents" }
+        {value: "", label: "Select Target Audience"},
+        {value: "all", label: "All Residents"},
+        {value: "owners", label: "Flat Owners Only"},
+        {value: "tenants", label: "Tenants Only"},
+        {value: "staff", label: "Staff Only"},
+        {value: "visitors", label: "Visitors"},
+        {value: "block_a", label: "Block A Residents"},
+        {value: "block_b", label: "Block B Residents"},
+        {value: "block_c", label: "Block C Residents"}
     ];
 
     const ackOptions = [
-        { value: "yes", label: "Yes" },
-        { value: "no", label: "No" }
+        {value: "yes", label: "Yes"},
+        {value: "no", label: "No"}
     ];
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         setFormData({
             ...formData,
             [name]: value
@@ -203,7 +203,8 @@ function NoticeForm({ onAddNotice }) {
                                             value={formData.issue_date}
                                             onChange={handleChange}
                                         />
-                                        {errors.issue_date && <div className="invalid-feedback">{errors.issue_date}</div>}
+                                        {errors.issue_date &&
+                                            <div className="invalid-feedback">{errors.issue_date}</div>}
                                     </div>
 
                                     <div className="col-md-6 mb-3">
@@ -216,7 +217,8 @@ function NoticeForm({ onAddNotice }) {
                                             value={formData.valid_until}
                                             onChange={handleChange}
                                         />
-                                        {errors.valid_until && <div className="invalid-feedback">{errors.valid_until}</div>}
+                                        {errors.valid_until &&
+                                            <div className="invalid-feedback">{errors.valid_until}</div>}
                                     </div>
                                 </div>
 
@@ -232,7 +234,8 @@ function NoticeForm({ onAddNotice }) {
                                             onChange={handleChange}
                                             placeholder="Name of the person issuing the notice"
                                         />
-                                        {errors.issuer_name && <div className="invalid-feedback">{errors.issuer_name}</div>}
+                                        {errors.issuer_name &&
+                                            <div className="invalid-feedback">{errors.issuer_name}</div>}
                                     </div>
 
                                     <div className="col-md-6 mb-3">
@@ -250,7 +253,8 @@ function NoticeForm({ onAddNotice }) {
                                                 </option>
                                             ))}
                                         </select>
-                                        {errors.target_audience && <div className="invalid-feedback">{errors.target_audience}</div>}
+                                        {errors.target_audience &&
+                                            <div className="invalid-feedback">{errors.target_audience}</div>}
                                     </div>
                                 </div>
 
@@ -270,7 +274,8 @@ function NoticeForm({ onAddNotice }) {
                                     </div>
 
                                     <div className="col-md-6 mb-3">
-                                        <label htmlFor="ack_required" className="form-label">Acknowledgment Required*</label>
+                                        <label htmlFor="ack_required" className="form-label">Acknowledgment
+                                            Required*</label>
                                         <select
                                             className="form-select"
                                             id="ack_required"
@@ -284,7 +289,8 @@ function NoticeForm({ onAddNotice }) {
                                                 </option>
                                             ))}
                                         </select>
-                                        <div className="form-text">Whether recipients need to acknowledge this notice</div>
+                                        <div className="form-text">Whether recipients need to acknowledge this notice
+                                        </div>
                                     </div>
                                 </div>
 

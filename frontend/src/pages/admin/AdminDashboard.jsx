@@ -121,119 +121,119 @@ function AdminDashboard() {
     ];
 
     return (
-        
-         <div className="container mt-4">
-                {/* Page Title */}
-                <PageHeader PageTitle={"Admin Dashboa   rd"} />
+
+        <div className="container mt-4">
+            {/* Page Title */}
+            <PageHeader PageTitle={"Admin Dashboa   rd"}/>
 
 
-                {/* Top Stats */}
-                <div className="row g-4 mt-2">
-                    <div className="col-md-3 col-6">
-                        <InfoCard
-                            title="Residents"
-                            count={245}
-                            change="+12%"
-                            changeColor="success"
-                            icon="bi-people"
-                            period="in last 7 days"
-                        />
-                    </div>
-                    <div className="col-md-3 col-6">
-                        <InfoCard
-                            title="Complaints"
-                            count={68}
-                            change="-5%"
-                            changeColor="danger"
-                            icon="bi-exclamation-circle"
-                            period="this week"
-                        />
-                    </div>
-                    <div className="col-md-3 col-6">
-                        <InfoCard
-                            title="Visitors"
-                            count={134}
-                            change="+20%"
-                            changeColor="success"
-                            icon="bi-person-badge"
-                            period="today"
-                        />
-                    </div>
-                    <div className="col-md-3 col-6">
-                        <InfoCard
-                            title="Payments"
-                            count={"₹56,000"}
-                            change="+10%"
-                            changeColor="success"
-                            icon="bi-currency-rupee"
-                            period="this month"
-                        />
-                    </div>
+            {/* Top Stats */}
+            <div className="row g-4 mt-2">
+                <div className="col-md-3 col-6">
+                    <InfoCard
+                        title="Residents"
+                        count={245}
+                        change="+12%"
+                        changeColor="success"
+                        icon="bi-people"
+                        period="in last 7 days"
+                    />
                 </div>
-
-                {/* Quick Access Cards */}
-                <div className="row g-4 mt-4">
-                    <div className="col-6 col-md-2">
-                        <CardView title="Dashboard" description="Overview" click="/dashboard"/>
-                    </div>
-                    <div className="col-6 col-md-2">
-                        <CardView title="Service" description="Requests" click="/service"/>
-                    </div>
-                    <div className="col-6 col-md-2">
-                        <CardView title="Housing" description="Houses" click={PATHS.HOUSING}/>
-                    </div>
-                    <div className="col-6 col-md-2">
-                        <CardView title="Notice" description="Notices" click={PATHS.NOTICE}/>
-                    </div>
-                    <div className="col-6 col-md-2">
-                        <CardView title=" Add Amenities" description="Amenities" click={PATHS.FACILITY}/>
-                    </div>
-                    <div className="col-6 col-md-2">
-                        <CardView title="About" description="About Us" click="/about"/>
-                    </div>
-                    <StatsCard title={"incone"} trendPercentage={2.3} trendPositive={true} trendText={"9 month after"}/>
-                    <SummaryCard title={"unit"} trendPercentage={2.3} trendPositive={true}  progressValue={80}/>
+                <div className="col-md-3 col-6">
+                    <InfoCard
+                        title="Complaints"
+                        count={68}
+                        change="-5%"
+                        changeColor="danger"
+                        icon="bi-exclamation-circle"
+                        period="this week"
+                    />
                 </div>
-
-                {/* Transactions Section */}
-                <div className="row mt-5"   >
-                    <div className="col-lg-8">
-                        <RecentTransactions
-                            title="Recent Transactions"
-                            periodOptions={["Weekly", "Monthly", "Yearly"]}
-                            transactions={transactions}
-                        />
-                    </div>
-
-                    {/* Example chart placeholder */}
-                    <div className="col-lg-4">
-                        <div className="card shadow-sm border-0 rounded-3">
-                            <div className="card-header bg-white fw-bold">
-                                Usage Overview
-                            </div>
-                            <div className="card-body text-center">
-                                <img
-                                    src="/chart-placeholder.png"
-                                    alt="Chart"
-                                    className="img-fluid"
-                                />
-                                <p className="text-muted mt-2">Water & Electricity Usage</p>
-                            </div>
-                        </div>
-                    </div>
-                    <BookingCalendar />
-                    <BookingPoliciesFAQ />
-                    {/*<AdminComplaints/>*/}
-                    {/*<ComplaintCharts/>*/}
-                    {/*<ValidateCode />*/}
-                    <VisitorLogs visitors={visitors} columns={columns} />
-                    <UserProfile />
-                    <BudgetPlanning />
-                    <TrackComplaints />
-                    <ResolvedIssues />
-                    <UtilityForm />
+                <div className="col-md-3 col-6">
+                    <InfoCard
+                        title="Visitors"
+                        count={134}
+                        change="+20%"
+                        changeColor="success"
+                        icon="bi-person-badge"
+                        period="today"
+                    />
+                </div>
+                <div className="col-md-3 col-6">
+                    <InfoCard
+                        title="Payments"
+                        count={"₹56,000"}
+                        change="+10%"
+                        changeColor="success"
+                        icon="bi-currency-rupee"
+                        period="this month"
+                    />
                 </div>
             </div>
+
+            {/* Quick Access Cards */}
+            <div className="row g-4 mt-4">
+                <div className="col-6 col-md-2">
+                    <CardView title="Dashboard" description="Overview" click="/dashboard"/>
+                </div>
+                <div className="col-6 col-md-2">
+                    <CardView title="Service" description="Requests" click="/service"/>
+                </div>
+                <div className="col-6 col-md-2">
+                    <CardView title="Housing" description="Houses" click={PATHS.HOUSING}/>
+                </div>
+                <div className="col-6 col-md-2">
+                    <CardView title="Notice" description="Notices" click={PATHS.NOTICE}/>
+                </div>
+                <div className="col-6 col-md-2">
+                    <CardView title=" Add Amenities" description="Amenities" click={PATHS.FACILITY}/>
+                </div>
+                <div className="col-6 col-md-2">
+                    <CardView title="About" description="About Us" click="/about"/>
+                </div>
+                <StatsCard title={"incone"} trendPercentage={2.3} trendPositive={true} trendText={"9 month after"}/>
+                <SummaryCard title={"unit"} trendPercentage={2.3} trendPositive={true} progressValue={80}/>
+            </div>
+
+            {/* Transactions Section */}
+            <div className="row mt-5">
+                <div className="col-lg-8">
+                    <RecentTransactions
+                        title="Recent Transactions"
+                        periodOptions={["Weekly", "Monthly", "Yearly"]}
+                        transactions={transactions}
+                    />
+                </div>
+
+                {/* Example chart placeholder */}
+                <div className="col-lg-4">
+                    <div className="card shadow-sm border-0 rounded-3">
+                        <div className="card-header bg-white fw-bold">
+                            Usage Overview
+                        </div>
+                        <div className="card-body text-center">
+                            <img
+                                src="/chart-placeholder.png"
+                                alt="Chart"
+                                className="img-fluid"
+                            />
+                            <p className="text-muted mt-2">Water & Electricity Usage</p>
+                        </div>
+                    </div>
+                </div>
+                <BookingCalendar/>
+                <BookingPoliciesFAQ/>
+                {/*<AdminComplaints/>*/}
+                {/*<ComplaintCharts/>*/}
+                {/*<ValidateCode />*/}
+                <VisitorLogs visitors={visitors} columns={columns}/>
+                <UserProfile/>
+                <BudgetPlanning/>
+                <TrackComplaints/>
+                <ResolvedIssues/>
+                <UtilityForm/>
+            </div>
+        </div>
     );
 }
 

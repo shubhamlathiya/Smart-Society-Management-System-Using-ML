@@ -1,9 +1,9 @@
 // src/components/Forms/HousingMemberForm.jsx
-import React, { useEffect, useState } from "react";
-import { housingApi } from "../../services/api";
+import React, {useEffect, useState} from "react";
+import {housingApi} from "../../services/api";
 import {relationshipOptions} from "../../utils/constants/appConstants";
 
-function HousingMemberForm({ onAddMember }) {
+function HousingMemberForm({onAddMember}) {
     const [formData, setFormData] = useState({
         member_id: "",
         name: "",
@@ -34,7 +34,7 @@ function HousingMemberForm({ onAddMember }) {
                 setAllUnits(data);
 
                 const uniqueBlocks = Array.from(
-                    new Map(data.map(u => [u.block_id, { id: u.block_id, name: u.block_name }])).values()
+                    new Map(data.map(u => [u.block_id, {id: u.block_id, name: u.block_name}])).values()
                 );
                 setBlocks(uniqueBlocks);
             } catch (error) {
@@ -56,7 +56,7 @@ function HousingMemberForm({ onAddMember }) {
     }, [formData.block_id, allUnits]);
 
     const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
+        const {name, value, type, checked} = e.target;
         setFormData({
             ...formData,
             [name]: type === "checkbox" ? checked : value

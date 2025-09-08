@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-function StaffForm({ onAddStaff }) {
+function StaffForm({onAddStaff}) {
     const [formData, setFormData] = useState({
         staff_id: "",
         name: "",
@@ -22,61 +22,61 @@ function StaffForm({ onAddStaff }) {
 
     // Options for dropdowns
     const departmentOptions = [
-        { value: "", label: "Select Department" },
-        { value: "security", label: "Security" },
-        { value: "maintenance", label: "Maintenance" },
-        { value: "administration", label: "Administration" },
-        { value: "housekeeping", label: "Housekeeping" },
-        { value: "management", label: "Management" },
-        { value: "other", label: "Other" }
+        {value: "", label: "Select Department"},
+        {value: "security", label: "Security"},
+        {value: "maintenance", label: "Maintenance"},
+        {value: "administration", label: "Administration"},
+        {value: "housekeeping", label: "Housekeeping"},
+        {value: "management", label: "Management"},
+        {value: "other", label: "Other"}
     ];
 
     const positionOptions = {
         security: [
-            { value: "", label: "Select Position" },
-            { value: "security_guard", label: "Security Guard" },
-            { value: "security_supervisor", label: "Security Supervisor" },
-            { value: "head_of_security", label: "Head of Security" }
+            {value: "", label: "Select Position"},
+            {value: "security_guard", label: "Security Guard"},
+            {value: "security_supervisor", label: "Security Supervisor"},
+            {value: "head_of_security", label: "Head of Security"}
         ],
         maintenance: [
-            { value: "", label: "Select Position" },
-            { value: "technician", label: "Maintenance Technician" },
-            { value: "electrician", label: "Electrician" },
-            { value: "plumber", label: "Plumber" },
-            { value: "maintenance_supervisor", label: "Maintenance Supervisor" }
+            {value: "", label: "Select Position"},
+            {value: "technician", label: "Maintenance Technician"},
+            {value: "electrician", label: "Electrician"},
+            {value: "plumber", label: "Plumber"},
+            {value: "maintenance_supervisor", label: "Maintenance Supervisor"}
         ],
         administration: [
-            { value: "", label: "Select Position" },
-            { value: "receptionist", label: "Receptionist" },
-            { value: "admin_assistant", label: "Administrative Assistant" },
-            { value: "office_manager", label: "Office Manager" }
+            {value: "", label: "Select Position"},
+            {value: "receptionist", label: "Receptionist"},
+            {value: "admin_assistant", label: "Administrative Assistant"},
+            {value: "office_manager", label: "Office Manager"}
         ],
         housekeeping: [
-            { value: "", label: "Select Position" },
-            { value: "housekeeper", label: "Housekeeper" },
-            { value: "housekeeping_supervisor", label: "Housekeeping Supervisor" }
+            {value: "", label: "Select Position"},
+            {value: "housekeeper", label: "Housekeeper"},
+            {value: "housekeeping_supervisor", label: "Housekeeping Supervisor"}
         ],
         management: [
-            { value: "", label: "Select Position" },
-            { value: "property_manager", label: "Property Manager" },
-            { value: "assistant_manager", label: "Assistant Manager" },
-            { value: "facility_manager", label: "Facility Manager" }
+            {value: "", label: "Select Position"},
+            {value: "property_manager", label: "Property Manager"},
+            {value: "assistant_manager", label: "Assistant Manager"},
+            {value: "facility_manager", label: "Facility Manager"}
         ],
         other: [
-            { value: "", label: "Select Position" },
-            { value: "other", label: "Other Position" }
+            {value: "", label: "Select Position"},
+            {value: "other", label: "Other Position"}
         ]
     };
 
     const statusOptions = [
-        { value: "active", label: "Active" },
-        { value: "inactive", label: "Inactive" },
-        { value: "on_leave", label: "On Leave" },
-        { value: "terminated", label: "Terminated" }
+        {value: "active", label: "Active"},
+        {value: "inactive", label: "Inactive"},
+        {value: "on_leave", label: "On Leave"},
+        {value: "terminated", label: "Terminated"}
     ];
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         setFormData({
             ...formData,
             [name]: value
@@ -153,7 +153,7 @@ function StaffForm({ onAddStaff }) {
 
     // Get positions based on selected department
     const getPositionOptions = () => {
-        return positionOptions[formData.department] || [{ value: "", label: "First select a department" }];
+        return positionOptions[formData.department] || [{value: "", label: "First select a department"}];
     };
 
     return (
@@ -177,7 +177,7 @@ function StaffForm({ onAddStaff }) {
 
                             <form onSubmit={handleSubmit}>
                                 <div className="row">
-                                  
+
 
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor="name" className="form-label">Full Name*</label>
@@ -240,7 +240,8 @@ function StaffForm({ onAddStaff }) {
                                                 </option>
                                             ))}
                                         </select>
-                                        {errors.department && <div className="invalid-feedback">{errors.department}</div>}
+                                        {errors.department &&
+                                            <div className="invalid-feedback">{errors.department}</div>}
                                     </div>
 
                                     <div className="col-md-6 mb-3">
@@ -311,7 +312,8 @@ function StaffForm({ onAddStaff }) {
 
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
-                                        <label htmlFor="emergency_contact" className="form-label">Emergency Contact Name</label>
+                                        <label htmlFor="emergency_contact" className="form-label">Emergency Contact
+                                            Name</label>
                                         <input
                                             type="text"
                                             className="form-control"
@@ -324,7 +326,8 @@ function StaffForm({ onAddStaff }) {
                                     </div>
 
                                     <div className="col-md-6 mb-3">
-                                        <label htmlFor="emergency_phone" className="form-label">Emergency Contact Phone</label>
+                                        <label htmlFor="emergency_phone" className="form-label">Emergency Contact
+                                            Phone</label>
                                         <input
                                             type="tel"
                                             className="form-control"
@@ -341,7 +344,8 @@ function StaffForm({ onAddStaff }) {
 
 
                                     <div className="col-md-6 mb-3">
-                                        <label htmlFor="qualifications" className="form-label">Qualifications/Certifications</label>
+                                        <label htmlFor="qualifications"
+                                               className="form-label">Qualifications/Certifications</label>
                                         <input
                                             type="text"
                                             className="form-control"

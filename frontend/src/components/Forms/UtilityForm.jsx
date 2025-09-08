@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 function UtilityForm() {
     const [form, setForm] = useState({
@@ -11,11 +11,11 @@ function UtilityForm() {
     });
 
     const handleChange = (e) => {
-        const { name, value, files } = e.target;
+        const {name, value, files} = e.target;
         if (name === "bill") {
-            setForm({ ...form, bill: files[0] }); // store file
+            setForm({...form, bill: files[0]}); // store file
         } else {
-            setForm({ ...form, [name]: value });
+            setForm({...form, [name]: value});
         }
     };
 

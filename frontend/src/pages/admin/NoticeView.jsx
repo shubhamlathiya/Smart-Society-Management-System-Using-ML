@@ -123,93 +123,93 @@ function NoticeView() {
 
     return (
 
-         <div className="container mt-4" style={{
-                position: "relative",
-                paddingBottom: 30
-            }}>
-                <h4 className="mb-3">Notices</h4>
+        <div className="container mt-4" style={{
+            position: "relative",
+            paddingBottom: 30
+        }}>
+            <h4 className="mb-3">Notices</h4>
 
-                {/* Search + Date filter */}
-                <div className="d-flex gap-2 mb-3">
-                    <input
-                        type="text"
-                        className="form-control w-25"
-                        placeholder="Search"
-                    />
-                    <button
-                        className="btn btn-outline-primary"
-                        onClick={() => setShowPicker(!showPicker)}>
-                        {format(dateRange[0].startDate, "dd MMM yyyy")} -{" "}
-                        {format(dateRange[0].endDate, "dd MMM yyyy")}
-                    </button>
-                </div>
-
-                {/* Date Picker */}
-                {showPicker && (
-                    <div style={{position: "absolute", zIndex: 100, top: "90px"}}>
-                        <DateRangePicker
-                            locale={enUS} // ✅ FIXES localize error
-                            onChange={(item) => setDateRange([item.selection])}
-                            moveRangeOnFirstSelection={false}
-                            ranges={dateRange}
-                        />
-                        <div className="mt-2 text-end">
-                            <button
-                                className="btn btn-secondary me-2"
-                                onClick={() => setShowPicker(false)}
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                className="btn btn-primary"
-                                onClick={() => setShowPicker(false)}
-                            >
-                                Apply
-                            </button>
-                        </div>
-                    </div>
-                )}
-
-                {/* HousingTable */}
-                <div className="table-responsive"
-                     style={{borderRadius: 5, backgroundColor: colors.light, border: "solid", borderWidth: 1}}>
-                    <table className="table table-hover align-middle">
-                        <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Block No</th>
-                            <th>Category</th>
-                            <th>Description</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {filteredNotices.length > 0 ? (
-                            filteredNotices.map((notice, index) => (
-                                <tr key={index}>
-                                    <td>{notice.date}</td>
-                                    <td>
-                                        <div><b>{notice.name}</b></div>
-                                        <small className="text-muted">{notice.phone}</small>
-                                    </td>
-                                    <td>{notice.blockNo}</td>
-                                    <td>{notice.category}</td>
-                                    <td>{notice.description}</td>
-                                </tr>
-                            ))
-                        ) : (
-                            <tr>
-                                <td colSpan="5" className="text-center text-muted">
-                                    No notices found for selected date range
-                                </td>
-                            </tr>
-                        )}
-                        </tbody>
-                    </table>
-
-                    <NoticeForm />
-                </div>
+            {/* Search + Date filter */}
+            <div className="d-flex gap-2 mb-3">
+                <input
+                    type="text"
+                    className="form-control w-25"
+                    placeholder="Search"
+                />
+                <button
+                    className="btn btn-outline-primary"
+                    onClick={() => setShowPicker(!showPicker)}>
+                    {format(dateRange[0].startDate, "dd MMM yyyy")} -{" "}
+                    {format(dateRange[0].endDate, "dd MMM yyyy")}
+                </button>
             </div>
+
+            {/* Date Picker */}
+            {showPicker && (
+                <div style={{position: "absolute", zIndex: 100, top: "90px"}}>
+                    <DateRangePicker
+                        locale={enUS} // ✅ FIXES localize error
+                        onChange={(item) => setDateRange([item.selection])}
+                        moveRangeOnFirstSelection={false}
+                        ranges={dateRange}
+                    />
+                    <div className="mt-2 text-end">
+                        <button
+                            className="btn btn-secondary me-2"
+                            onClick={() => setShowPicker(false)}
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => setShowPicker(false)}
+                        >
+                            Apply
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {/* HousingTable */}
+            <div className="table-responsive"
+                 style={{borderRadius: 5, backgroundColor: colors.light, border: "solid", borderWidth: 1}}>
+                <table className="table table-hover align-middle">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Block No</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {filteredNotices.length > 0 ? (
+                        filteredNotices.map((notice, index) => (
+                            <tr key={index}>
+                                <td>{notice.date}</td>
+                                <td>
+                                    <div><b>{notice.name}</b></div>
+                                    <small className="text-muted">{notice.phone}</small>
+                                </td>
+                                <td>{notice.blockNo}</td>
+                                <td>{notice.category}</td>
+                                <td>{notice.description}</td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="5" className="text-center text-muted">
+                                No notices found for selected date range
+                            </td>
+                        </tr>
+                    )}
+                    </tbody>
+                </table>
+
+                <NoticeForm/>
+            </div>
+        </div>
     );
 }
 

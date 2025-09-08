@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import HousingTable from "../../components/TableView/HousingTable";
 import AddHousingBlockForm from "../../components/Forms/HousingBlock/AddHousingBlockForm";
-import { housingApi, blockApi } from "../../services/api";
-import { unitTypes } from "../../utils/constants/appConstants";
+import {housingApi, blockApi} from "../../services/api";
+import {unitTypes} from "../../utils/constants/appConstants";
 import PageHeader from "../../layout/PageHeader";
 
 function HousingView() {
@@ -53,18 +53,18 @@ function HousingView() {
     };
 
     const housingColumns = [
-        { header: "ID", accessor: "id" },
-        { header: "Block Name", accessor: "block_name" },
-        { header: "Unit No", accessor: "unit_number" },
-        { header: "Type", accessor: "type", type: "select", options: unitTypes },
+        {header: "ID", accessor: "id"},
+        {header: "Block Name", accessor: "block_name"},
+        {header: "Unit No", accessor: "unit_number"},
+        {header: "Type", accessor: "type", type: "select", options: unitTypes},
     ];
 
     return (
         <div className="container">
-            <PageHeader PageTitle="Housing" />
+            <PageHeader PageTitle="Housing"/>
             <div className="row">
                 <div className="col-12">
-                    <AddHousingBlockForm blocks={blocks} onSuccess={fetchHousingData} />
+                    <AddHousingBlockForm blocks={blocks} onSuccess={fetchHousingData}/>
                 </div>
                 <div className="col-12 mt-3">
                     <HousingTable

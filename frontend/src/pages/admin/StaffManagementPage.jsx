@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import StaffForm from "../../components/Forms/StaffForm";
 
 function StaffManagementPage() {
@@ -14,7 +14,7 @@ function StaffManagementPage() {
 
     return (
         <div>
-            <StaffForm onAddStaff={handleAddStaff} />
+            <StaffForm onAddStaff={handleAddStaff}/>
 
             {/* Display existing staff members */}
             <div className="container mt-4">

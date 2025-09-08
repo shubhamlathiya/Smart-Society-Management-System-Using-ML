@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { utilityApi, blockApi } from "../../services/api";
+import React, {useState, useEffect} from "react";
+import {utilityApi, blockApi} from "../../services/api";
 import EditUtilityUsageForm from "../../components/Forms/UtilityUsage/EditUtilityUsageForm";
 import AddUtilityUsageForm from "../../components/Forms/UtilityUsage/AddUtilityUsageForm";
 
@@ -53,12 +53,11 @@ function UtilityUsageView() {
         }
     };
 
-    return (
-        <div className="container mt-4">
+    return (<div className="container mt-4">
             <h3>Utility Usage Management</h3>
 
             {/* Add Form */}
-            <AddUtilityUsageForm onSuccess={fetchRecords} />
+            <AddUtilityUsageForm onSuccess={fetchRecords}/>
 
             {/* Table */}
             <div className="table-responsive mt-4 bg-white rounded shadow p-3">
@@ -75,15 +74,11 @@ function UtilityUsageView() {
                     </tr>
                     </thead>
                     <tbody>
-                    {records.length === 0 ? (
-                        <tr>
+                    {records.length === 0 ? (<tr>
                             <td colSpan="7" className="text-center text-muted">
                                 No records found
                             </td>
-                        </tr>
-                    ) : (
-                        records.map((r) => (
-                            <tr key={r.id}>
+                        </tr>) : (records.map((r) => (<tr key={r.id}>
                                 <td>{r.date}</td>
                                 <td>{blocks.find(b => b.id === r.block_id)?.block_name || r.block_id}</td>
                                 <td>{r.utility_type}</td>
@@ -91,31 +86,27 @@ function UtilityUsageView() {
                                 <td>{r.unit}</td>
                                 <td>{r.description}</td>
                                 <td>
-                                    <button className="btn btn-sm btn-primary me-2" onClick={() => setSelectedRecord(r)}>
+                                    <button className="btn btn-sm btn-primary me-2"
+                                            onClick={() => setSelectedRecord(r)}>
                                         Edit
                                     </button>
                                     <button className="btn btn-sm btn-danger" onClick={() => handleDelete(r.id)}>
                                         Delete
                                     </button>
                                 </td>
-                            </tr>
-                        ))
-                    )}
+                            </tr>)))}
                     </tbody>
                 </table>
             </div>
 
             {/* Edit Modal */}
-            {selectedRecord && (
-                <EditUtilityUsageForm
+            {selectedRecord && (<EditUtilityUsageForm
                     item={selectedRecord}
                     blocks={blocks}
                     onSave={handleSave}
                     onCancel={() => setSelectedRecord(null)}
-                />
-            )}
-        </div>
-    );
+                />)}
+        </div>);
 }
 
 export default UtilityUsageView;

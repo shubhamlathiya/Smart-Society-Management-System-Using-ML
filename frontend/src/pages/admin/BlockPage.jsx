@@ -25,7 +25,7 @@ function HousingBlockPage() {
     const handleDelete = async (blockId) => {
         if (!window.confirm("Are you sure you want to delete this block?")) return;
         try {
-            const response =  await blockApi.deleteBlock(blockId);
+            const response = await blockApi.deleteBlock(blockId);
             console.log(response);
             fetchBlocks();
         } catch (err) {

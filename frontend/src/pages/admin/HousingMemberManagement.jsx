@@ -5,7 +5,6 @@ import {memberApi} from "../../services/api";
 import HousingMemberTable from "../../components/TableView/HousingMemberTable";
 
 
-
 function HousingMemberManagement() {
     const [members, setMembers] = useState([]);
 
