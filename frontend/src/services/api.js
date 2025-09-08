@@ -12,7 +12,15 @@ import {
     BLOCK_UPDATE,
     BLOCK_DELETE,
     HOUSING_DELETE,
-    HOUSING_UPDATE, UTILITY_GET, UTILITY_DELETE, UTILITY_UPDATE, UTILITY_POST,
+    HOUSING_UPDATE,
+    UTILITY_GET,
+    UTILITY_DELETE,
+    UTILITY_UPDATE,
+    UTILITY_POST,
+    MEMBER_POST,
+    MEMBER_GET,
+    MEMBER_UPDATE,
+    MEMBER_DELETE,
 } from "../utils/constants/apiConstants";
 
 // axios instance with correct base URL
@@ -165,6 +173,45 @@ export const utilityApi = {
             headers: {'Content-Type': 'application/json'},
         }).catch(error => {
             console.error('Delete Utility Error:', error.response || error.message);
+            throw error;
+        });
+    }
+};
+
+export const memberApi = {
+    addMember: (memberData) => {
+        return API.post(MEMBER_POST, memberData, {
+            headers: {'Content-Type': 'application/json'},
+        }).catch(error => {
+            console.error('Add Member Error:', error.response || error.message);
+            throw error;
+        });
+    },
+
+    getMembers: async () => {
+        try {
+            const response = await API.get(MEMBER_GET);
+            return response.data;
+        } catch (error) {
+            console.error('Get Members Error:', error.response || error.message);
+            throw error;
+        }
+    },
+
+    updateMember: (memberId, updatedData) => {
+        return API.put(MEMBER_UPDATE(memberId), updatedData, {
+            headers: {'Content-Type': 'application/json'},
+        }).catch(error => {
+            console.error('Update Member Error:', error.response || error.message);
+            throw error;
+        });
+    },
+
+    deleteMember: (memberId) => {
+        return API.delete(MEMBER_DELETE(memberId), {
+            headers: {'Content-Type': 'application/json'},
+        }).catch(error => {
+            console.error('Delete Member Error:', error.response || error.message);
             throw error;
         });
     }

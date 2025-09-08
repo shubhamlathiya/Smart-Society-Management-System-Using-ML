@@ -1,5 +1,4 @@
 // Correct Flask backend base URL
-import {utilityApi} from "../../services/api";
 
 const API_BASE_URL = 'http://127.0.0.1:5000/';
 
@@ -26,6 +25,12 @@ export const VISITOR_POST = API_BASE_URL + "visitor/visitors";
 export const COMPLAINTS = API_BASE_URL + "complaints";
 export const COMPLAINT_STATUS = (id) => API_BASE_URL + `complaints/${id}/status`;
 export const STATS = API_BASE_URL + "stats";
+
+// -------------------- member -------------------
+export const MEMBER_POST = API_BASE_URL + "member/";
+export const MEMBER_GET = API_BASE_URL + "member/";
+export const MEMBER_UPDATE = (memberId) => API_BASE_URL + `member/${memberId}`;
+export const MEMBER_DELETE = (memberId) => API_BASE_URL + `member/${memberId}`;
 
 // -------------------- utility ------------------
 export const UTILITY_GET = API_BASE_URL + "utility/";

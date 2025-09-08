@@ -3,6 +3,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 
 from controllers.BlockControllers.blocks import blocks
+from controllers.HousingUnitControllers.HousingMember import member
 from controllers.MaintenanceControllers.maintenanceControllers import utility
 from controllers.VisitorControllers.PreRegisterVisitors import visitor
 from controllers.ComplaintControllers.addComplaint import complaint
@@ -16,6 +17,7 @@ load_dotenv()
 init_app(app)
 
 with app.app_context():
+    # db.drop_all()
     db.create_all()
 
 app.register_blueprint(blocks, url_prefix="/blocks")
@@ -24,7 +26,7 @@ app.register_blueprint(housing, url_prefix='/housing')
 app.register_blueprint(complaint, url_prefix='/complaint')
 app.register_blueprint(visitor, url_prefix='/visitor')
 app.register_blueprint(utility, url_prefix='/utility')
-
+app.register_blueprint(member , url_prefix='/member')
 @app.route('/')
 def hello_world():
     return 'Hello World!'

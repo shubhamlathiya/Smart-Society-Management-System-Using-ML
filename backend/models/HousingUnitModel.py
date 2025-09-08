@@ -13,7 +13,7 @@ class Block(db.Model):
     maintenances = db.relationship("BlockMaintenance", back_populates="block", cascade="all, delete-orphan")
     payments = db.relationship("FlatPayment", back_populates="block", cascade="all, delete-orphan")
     utilities = db.relationship("BlockUtilityUsage", back_populates="block", cascade="all, delete-orphan")
-
+    units = db.relationship("HousingUnit", back_populates="block", cascade="all, delete-orphan")
 
 class HousingUnit(db.Model):
     __tablename__ = 'housing_units'
@@ -26,7 +26,7 @@ class HousingUnit(db.Model):
     # relationships
     block = db.relationship("Block", back_populates="housing_units")
     payments = db.relationship("FlatPayment", back_populates="flat", cascade="all, delete-orphan")
-
+    members = db.relationship("HousingMember", back_populates="unit", cascade="all, delete-orphan")
 
 class BlockMaintenance(db.Model):
     __tablename__ = 'block_maintenance'
