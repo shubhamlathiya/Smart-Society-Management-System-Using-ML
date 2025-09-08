@@ -25,8 +25,8 @@ def get_members():
             "move_in_date": str(m.move_in_date) if m.move_in_date else None,
             "move_out_date": str(m.move_out_date) if m.move_out_date else None,
             "status": m.status,
-            "unit_id": m.unit_id,
-            "block_id": m.unit.block_id if m.unit else None   # ✅ FIX
+            "unit_number": m.unit.unit_number,
+            "block_name": m.unit.block.block_name if m.unit else None  # ✅ FIX
         })
 
     return jsonify(result)

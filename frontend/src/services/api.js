@@ -21,6 +21,10 @@ import {
     MEMBER_GET,
     MEMBER_UPDATE,
     MEMBER_DELETE,
+    STAFF_POST,
+    STAFF_GET,
+    STAFF_UPDATE,
+    STAFF_DELETE, NOTICE_GET, NOTICE_POST, NOTICE_UPDATE, NOTICE_DELETE,
 } from "../utils/constants/apiConstants";
 
 // axios instance with correct base URL
@@ -37,8 +41,7 @@ export const blockApi = {
             console.error('Error creating block post', error);
             throw error;
         });
-    },
-    getBlocks: async () => {
+    }, getBlocks: async () => {
         try {
             const response = await API.get(BLOCK_GET);
             return response.data;
@@ -46,16 +49,14 @@ export const blockApi = {
             console.error('Error getting block post', error);
             throw error;
         }
-    },
-    updateBlock: (blockId, updatedData) => {
+    }, updateBlock: (blockId, updatedData) => {
         return API.put(BLOCK_UPDATE(blockId), updatedData, {
             headers: {'Content-Type': 'application/json'}
         }).catch(error => {
             console.error('Error updating block', error);
             throw error;
         });
-    },
-    deleteBlock: (blockId) => {
+    }, deleteBlock: (blockId) => {
         return API.delete(BLOCK_DELETE(blockId), {
             headers: {'Content-Type': 'application/json'},
         }).catch(error => {
@@ -214,6 +215,91 @@ export const memberApi = {
             console.error('Delete Member Error:', error.response || error.message);
             throw error;
         });
+    }
+};
+
+export const staffApi = {
+    addStaff: (staffData) => {
+        return API.post(STAFF_POST, staffData, {
+            headers: {'Content-Type': 'application/json'},
+        }).catch(error => {
+            console.error('Add Staff Error:', error.response || error.message);
+            throw error;
+        });
+    },
+
+    getStaff: async () => {
+        try {
+            const response = await API.get(STAFF_GET);
+            return response.data;
+        } catch (error) {
+            console.error('Get Staff Error:', error.response || error.message);
+            throw error;
+        }
+    },
+
+    updateStaff: (staffId, updatedData) => {
+        return API.put(STAFF_UPDATE(staffId), updatedData, {
+            headers: {'Content-Type': 'application/json'},
+        }).catch(error => {
+            console.error('Update Staff Error:', error.response || error.message);
+            throw error;
+        });
+    },
+
+    deleteStaff: (staffId) => {
+        return API.delete(STAFF_DELETE(staffId), {
+            headers: {'Content-Type': 'application/json'},
+        }).catch(error => {
+            console.error('Delete Staff Error:', error.response || error.message);
+            throw error;
+        });
+    }
+};
+
+export const noticeApi = {
+    getNotices: async () => {
+        try {
+            const res = await API.get(NOTICE_GET);
+            return res.data;
+        } catch (error) {
+            console.error("Get Notices Error:", error.response || error.message);
+            throw error;
+        }
+    },
+
+    addNotice: async (noticeData) => {
+        try {
+            const res = await API.post(NOTICE_POST, noticeData, {
+                headers: { "Content-Type": "application/json" }
+            });
+            return res.data;
+        } catch (error) {
+            console.error("Add Notice Error:", error.response || error.message);
+            throw error;
+        }
+    },
+
+    updateNotice: async (noticeId, noticeData) => {
+        try {
+            const res = await API.put(NOTICE_UPDATE(noticeId), noticeData, {
+                headers: { "Content-Type": "application/json" }
+            });
+            return res.data;
+        } catch (error) {
+            console.error("Update Notice Error:", error.response || error.message);
+            throw error;
+        }
+    },
+
+    deleteNotice: async (noticeId) => {
+        try {
+            const res = await API.delete(NOTICE_DELETE(noticeId));
+            return res.data;
+        } catch (error) {
+            console.error("Delete Notice Error:", error.response || error.message);
+            throw error;
+        }
     }
 };
 

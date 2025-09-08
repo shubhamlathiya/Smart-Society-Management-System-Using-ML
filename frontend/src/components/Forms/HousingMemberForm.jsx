@@ -33,9 +33,10 @@ function HousingMemberForm({onAddMember}) {
                 const data = await housingApi.getHousing();
                 setAllUnits(data);
 
-                const uniqueBlocks = Array.from(
-                    new Map(data.map(u => [u.block_id, {id: u.block_id, name: u.block_name}])).values()
-                );
+                const uniqueBlocks = Array.from(new Map(data.map(u => [u.block_id, {
+                    id: u.block_id,
+                    name: u.block_name
+                }])).values());
                 setBlocks(uniqueBlocks);
             } catch (error) {
                 console.error("Error fetching housing units:", error);
@@ -46,9 +47,7 @@ function HousingMemberForm({onAddMember}) {
 
     useEffect(() => {
         if (formData.block_id) {
-            const filteredUnits = allUnits.filter(
-                unit => unit.block_id === parseInt(formData.block_id)
-            );
+            const filteredUnits = allUnits.filter(unit => unit.block_id === parseInt(formData.block_id));
             setUnits(filteredUnits);
         } else {
             setUnits([]);
@@ -58,8 +57,7 @@ function HousingMemberForm({onAddMember}) {
     const handleChange = (e) => {
         const {name, value, type, checked} = e.target;
         setFormData({
-            ...formData,
-            [name]: type === "checkbox" ? checked : value
+            ...formData, [name]: type === "checkbox" ? checked : value
         });
     };
 
@@ -78,8 +76,7 @@ function HousingMemberForm({onAddMember}) {
         if (!validateForm()) return;
 
         const memberData = {
-            ...formData,
-            member_id: formData.member_id || `MEM-${Date.now()}-${Math.floor(Math.random() * 1000)}`
+            ...formData, member_id: formData.member_id || `MEM-${Date.now()}-${Math.floor(Math.random() * 1000)}`
         };
         onAddMember(memberData);
 
@@ -101,8 +98,7 @@ function HousingMemberForm({onAddMember}) {
         });
     };
 
-    return (
-        <div className="card my-3 p-3 shadow">
+    return (<div className="card my-3 p-3 shadow">
             <h5>Add Housing Member</h5>
             <form onSubmit={handleSubmit}>
                 <div className="row g-3">
@@ -116,9 +112,7 @@ function HousingMemberForm({onAddMember}) {
                             onChange={handleChange}
                         >
                             <option value="">Select Block</option>
-                            {blocks.map(block => (
-                                <option key={block.id} value={block.id}>{block.name}</option>
-                            ))}
+                            {blocks.map(block => (<option key={block.id} value={block.id}>{block.name}</option>))}
                         </select>
                         {errors.block_id && <div className="invalid-feedback">{errors.block_id}</div>}
                     </div>
@@ -133,11 +127,9 @@ function HousingMemberForm({onAddMember}) {
                             onChange={handleChange}
                         >
                             <option value="">Select Unit</option>
-                            {units.map(unit => (
-                                <option key={unit.id} value={unit.id}>
+                            {units.map(unit => (<option key={unit.id} value={unit.id}>
                                     {unit.unit_number} ({unit.type})
-                                </option>
-                            ))}
+                                </option>))}
                         </select>
                         {errors.unit_id && <div className="invalid-feedback">{errors.unit_id}</div>}
                     </div>
@@ -165,9 +157,7 @@ function HousingMemberForm({onAddMember}) {
                             onChange={handleChange}
                         >
                             <option value="">Select Relationship</option>
-                            {relationshipOptions.map(rel => (
-                                <option key={rel} value={rel}>{rel}</option>
-                            ))}
+                            {relationshipOptions.map(rel => (<option key={rel} value={rel}>{rel}</option>))}
                         </select>
                         {errors.relationship && <div className="invalid-feedback">{errors.relationship}</div>}
                     </div>
@@ -192,7 +182,12 @@ function HousingMemberForm({onAddMember}) {
                             className="form-control"
                             name="phone"
                             value={formData.phone}
-                            onChange={handleChange}
+                            maxLength={10} // restrict typing to 10
+                            onChange={(e) => {
+                                // Only allow numbers, trim to 10 digits
+                                const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+                                handleChange({target: {name: 'phone', value}});
+                            }}
                         />
                     </div>
 
@@ -215,8 +210,13 @@ function HousingMemberForm({onAddMember}) {
                             type="text"
                             className="form-control"
                             name="aadhar_number"
+                            maxLength={12}
                             value={formData.aadhar_number}
-                            onChange={handleChange}
+                            onChange={(e) => {
+                                // Allow only numbers, max 12 digits
+                                const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 12);
+                                handleChange({target: {name: 'aadhar_number', value}});
+                            }}
                         />
                     </div>
 
@@ -267,8 +267,7 @@ function HousingMemberForm({onAddMember}) {
                     </div>
                 </div>
             </form>
-        </div>
-    );
+        </div>);
 }
 
 export default HousingMemberForm;

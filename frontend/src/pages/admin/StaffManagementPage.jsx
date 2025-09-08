@@ -1,25 +1,55 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import StaffForm from "../../components/Forms/StaffForm";
+import {staffApi} from "../../services/api";
+
 
 function StaffManagementPage() {
     const [staffMembers, setStaffMembers] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    const handleAddStaff = (staffData) => {
-        // Here you would typically send the data to your backend API
-        console.log("New staff member:", staffData);
+    // Fetch staff data from backend
+    useEffect(() => {
+        const fetchStaff = async () => {
+            try {
+                setLoading(true);
+                const data = await staffApi.getStaff();
+                console.log(data);
+                setStaffMembers(data);
+            } catch (err) {
+                setError("Failed to fetch staff members");
+                console.error("Fetch Staff Error:", err);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-        // For demonstration, we'll add it to local state
-        setStaffMembers([...staffMembers, staffData]);
+        fetchStaff();
+    }, []);
+
+    // Add staff to backend
+    const handleAddStaff = async (staffData) => {
+        try {
+            const newStaff = await staffApi.addStaff(staffData);
+            setStaffMembers([...staffMembers, newStaff]);
+        } catch (err) {
+            console.error("Add Staff Error:", err);
+            setError("Failed to add staff");
+        }
     };
 
     return (
         <div>
             <StaffForm onAddStaff={handleAddStaff}/>
 
-            {/* Display existing staff members */}
+            {/* Staff List */}
             <div className="container mt-4">
                 <h3>Staff Members</h3>
-                {staffMembers.length === 0 ? (
+
+                {loading && <p>Loading staff...</p>}
+                {error && <p className="text-danger">{error}</p>}
+
+                {!loading && staffMembers.length === 0 ? (
                     <p className="text-muted">No staff members added yet</p>
                 ) : (
                     <div className="table-responsive">
@@ -45,9 +75,17 @@ function StaffManagementPage() {
                                     <td>{staff.email}</td>
                                     <td>{staff.phone}</td>
                                     <td>
-                                            <span className={`badge ${staff.status === 'active' ? 'bg-success' :
-                                                staff.status === 'inactive' ? 'bg-secondary' :
-                                                    staff.status === 'on_leave' ? 'bg-warning' : 'bg-danger'}`}>
+                                            <span
+                                                className={`badge ${
+                                                    staff.status === "active"
+                                                        ? "bg-success"
+                                                        : staff.status === "inactive"
+                                                            ? "bg-secondary"
+                                                            : staff.status === "on_leave"
+                                                                ? "bg-warning"
+                                                                : "bg-danger"
+                                                }`}
+                                            >
                                                 {staff.status}
                                             </span>
                                     </td>

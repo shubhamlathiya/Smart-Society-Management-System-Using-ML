@@ -11,6 +11,7 @@ function HousingMemberManagement() {
     const fetchMembers = async () => {
         try {
             const data = await memberApi.getMembers();
+            // console.log(data)
             setMembers(data);
         } catch (error) {
             console.error("Error fetching members:", error);
@@ -23,8 +24,9 @@ function HousingMemberManagement() {
 
     const handleAddMember = async (memberData) => {
         try {
-            await memberApi.addMember(memberData);
+            console.log(await memberApi.addMember(memberData));
             fetchMembers();
+
         } catch (error) {
             console.error("Error adding member:", error);
         }

@@ -37,3 +37,16 @@ export const UTILITY_GET = API_BASE_URL + "utility/";
 export const UTILITY_POST = API_BASE_URL + "utility/";
 export const UTILITY_UPDATE = (id) => API_BASE_URL + `utility/${id}`;
 export const UTILITY_DELETE = (id) => API_BASE_URL + `utility/${id}`;
+
+// -------------------- staff ------------------
+export const STAFF_GET = API_BASE_URL + "staff/";
+export const STAFF_POST = API_BASE_URL + "staff/";
+export const STAFF_UPDATE = (id) => API_BASE_URL + `staff/${id}`;
+export const STAFF_DELETE = (id) => API_BASE_URL + `staff/${id}`;
+
+
+// -------------------- notice ------------------
+export const NOTICE_GET = API_BASE_URL + "notices/";
+export const NOTICE_POST = API_BASE_URL + "notices/";
+export const NOTICE_UPDATE = (id) => API_BASE_URL + `notices/${id}`;
+export const NOTICE_DELETE = (id) => API_BASE_URL + `notices/${id}`;

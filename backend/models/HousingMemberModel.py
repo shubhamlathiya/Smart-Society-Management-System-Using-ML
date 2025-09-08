@@ -18,7 +18,6 @@ class HousingMember(db.Model):
     move_in_date = db.Column(db.Date)
     move_out_date = db.Column(db.Date)
 
-    # ✅ Add this column
     status = db.Column(db.String(20), default="active")
 
     unit_id = db.Column(db.Integer, db.ForeignKey("housing_units.id"), nullable=False)
